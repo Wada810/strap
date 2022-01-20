@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/destyle.css"><!-- destyle -->
+    <link rel="stylesheet" href="css/style.css"><!-- 共通css -->
+    <link rel="stylesheet" href="css/style.css"><!-- 各ページの固有css -->
+    <!-- Googel Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Google Icon CDN  Outlined-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <main id="contents_wrapper">
+        <section id="left_column_contents">
+            <section id="account"></section>
+            <section id="groups"></section>
+            <section id="todo"></section>
+        </section>
+        <section id="right_column_contents">
+            <section id="schedule_board"></section>
+        </section>
+    </main>
+</body>
+</html>
