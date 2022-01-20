@@ -1,8 +1,23 @@
 /* サイズ */
+$t: 16px;//基準値
+$t_s: 0.8rem;//font size
+$t_m: 1.2rem;
+$t_l: 1.4rem;
+$t_ll: 1.6rem;
+$tw_l: 300;//font weight
+$tw_m: 600;
+$tw_b: 900;
 /* 色 */
-$text_color: #0c0c0c;
+$text_color: #0c0c0c;/* 本文の文字色 */
 $green: #83ff98;
+$blue: #BDE7FF;
+$bg_gradient: linear-gradient(180deg, rgba(226,243,240,1) 0%, rgba(232,239,224,1) 100%);//背景グラデーション
 /* マージン、パディング */
+$g_s: 4px;
+$g_m: 8px;
+$g_l: 12px;
+$g_ll: 20px;
+$btn_padding: 8px 24px 8px 24px;
 /* シャドウ */
 $shadow-2dp: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 $shadow-3dp: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
