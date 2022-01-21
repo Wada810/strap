@@ -139,38 +139,34 @@
                     <button><span class="material-icons-outlined">groups</span></button>
                     <button><span class="material-icons-outlined">info</span></button>
                 </div>
-                <div class="calendar_header">
-                    <div class="year"></div>
-                    <div class="range">
-                        <?php
-                            for($i=1;$i<14;$i++){?>
-                                <div>
-                                    <div class=""></div>
-                                </div>
-                                <?php
-                            }
-                        ?>
-                        <div>
-
-                        </div>
-                    </div>
-                </div>
+                <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
                 <div id="schedule_board">
-                    <div class="day_col"></div>
-                    <div class="day_col">1/17<div>(Mon)</div>
+                    <div class="day_fixed"></div>
+                    <div class="day_fixed">月</div>
+                    <div class="day_fixed">火</div>
+                    <div class="day_fixed">水</div>
+                    <div class="day_fixed">木</div>
+                    <div class="day_fixed">金</div>
+                    <div class="day_fixed">土</div>
+                    <div class="day_fixed">日</div>
+                    <div class="day_fixed"></div>
+
+                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <div class="day_col">1/17<div></div>
                     </div>
-                    <div class="day_col">1/18<div>(Tue)</div>
+                    <div class="day_col">1/18<div></div>
                     </div>
-                    <div class="day_col">1/19<div>(Wed)</div>
+                    <div class="day_col">1/19<div></div>
                     </div>
-                    <div class="day_col">1/20<div>(Thu)</div>
+                    <div class="day_col">1/20<div></div>
                     </div>
-                    <div class="day_col">1/21<div>(Fri)</div>
+                    <div class="day_col">1/21<div></div>
                     </div>
-                    <div class="day_col">1/22<div>(Sat)</div>
+                    <div class="day_col">1/22<div></div>
                     </div>
-                    <div class="day_col">1/23<div>(Sun)</div>
+                    <div class="day_col">1/23<div></div>
                     </div>
+                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="hour_bg">
                         <div class="hour_row">0:00</div>
