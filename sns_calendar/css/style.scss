@@ -229,17 +229,9 @@ body{
         left: 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         color: $grey;
-        .top{
-            height: 50px;
-            &::after{
-                content: "";
-                display: none !important;
-                opacity: 0;
-                border: none !important;
-            }
-        }
+        padding-top: 80px;
         .hour_row{
             display: flex;
             align-items: center;

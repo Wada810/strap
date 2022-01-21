@@ -262,19 +262,9 @@ body .material-icons-outlined {
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: #5a5a5a;
-}
-
-#schedule_board .hour_bg .top {
-  height: 50px;
-}
-
-#schedule_board .hour_bg .top::after {
-  content: "";
-  display: none !important;
-  opacity: 0;
-  border: none !important;
+  padding-top: 80px;
 }
 
 #schedule_board .hour_bg .hour_row {

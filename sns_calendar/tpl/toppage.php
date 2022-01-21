@@ -132,7 +132,6 @@
                     </div>
 
                     <div class="hour_bg">
-                        <div class="hour_row top"></div>
                         <div class="hour_row">0:00</div>
                         <div class="hour_row">1:00</div>
                         <div class="hour_row">2:00</div>
