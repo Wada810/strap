@@ -68,6 +68,11 @@ body .material-icons-outlined {
   color: #fcfeff;
 }
 
+.btn_grey {
+  background-color: #646464;
+  color: #fcfeff;
+}
+
 .icon_in {
   display: flex;
   align-items: center;
@@ -227,7 +232,7 @@ body .material-icons-outlined {
   flex-direction: column;
   align-items: center;
   position: relative;
-  color: #5a5a5a;
+  color: #646464;
 }
 
 #schedule_board .day_col .schedule {
@@ -263,7 +268,7 @@ body .material-icons-outlined {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #5a5a5a;
+  color: #646464;
   padding-top: 80px;
 }
 
@@ -275,7 +280,7 @@ body .material-icons-outlined {
 #schedule_board .hour_bg .hour_row::after {
   content: "";
   display: block;
-  border-bottom: 1px solid #5a5a5a;
+  border-bottom: 1px solid #646464;
   width: 100%;
   margin-left: 20px;
 }
