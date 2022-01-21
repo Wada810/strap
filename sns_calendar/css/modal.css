@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* サイズ */
-/* 色 */
 /* マージン、パディング */
 /* シャドウ */
 /* フォント */
@@ -8,11 +6,6 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
 }
 
 body {
@@ -30,6 +23,7 @@ body {
   font-weight: bold;
   justify-content: center;
   align-items: center;
+  z-index: 50;
 }
 
 .display {

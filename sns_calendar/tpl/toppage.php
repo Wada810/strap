@@ -163,9 +163,9 @@
                 </div>
             </section>
         </section>
+        <?php //会員登録用モーダル表示ボタン ?>
+        <p id="open_login_modal">会員登録</p>
     </main>
-    <?php //会員登録用モーダル表示ボタン ?>
-    <p id="open_login_modal">会員登録</p>
     <?php //会員登録用モーダル ?>
     <div id="login_modal_wrapper" class="modal_wrapper <?php echo $login_modal ?>">
         <form id="login_modal" class="f_box modal_box" action="" method="post" enctype="multipart/form-data">

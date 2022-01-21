@@ -1,11 +1,8 @@
 @charset "UTF-8";
-/* サイズ */
-/* 色 */
 /* マージン、パディング */
 /* シャドウ */
 /* フォント */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
-/*# sourceMappingURL=style.css.map */
 body {
   font-size: 16px;
   color: #0c0c0c;
@@ -287,3 +284,4 @@ body .material-icons-outlined {
   width: 100%;
   margin-left: 20px;
 }
+/*# sourceMappingURL=style.css.map */
