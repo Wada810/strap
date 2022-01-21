@@ -73,6 +73,11 @@ body .material-icons-outlined {
   color: #fcfeff;
 }
 
+.btn_grey {
+  background-color: #646464;
+  color: #fcfeff;
+}
+
 .icon_in {
   display: flex;
   align-items: center;
@@ -218,24 +223,51 @@ body .material-icons-outlined {
   margin-bottom: 40px;
 }
 
+#month {
+  margin-bottom: 10px;
+}
+
+#month #month_change {
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+#month #month_change span {
+  font-size: 1.2rem;
+}
+
+#month #month_change:hover {
+  color: #fa3a94;
+}
+
 #schedule_board {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 0.5fr repeat(7, 1fr) 0.5fr;
+  grid-template-rows: 2rem 1fr;
   min-height: 100vh;
   height: calc(24 * 70px);
-  gap: 16px;
+  gap: 8px;
   position: relative;
+}
+
+#schedule_board .day_fixed {
+  display: flex;
+  justify-content: center;
 }
 
 #schedule_board .day_col {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   position: relative;
-  color: #5a5a5a;
+  z-index: 1;
+  grid-row: 2/3;
+  font-weight: 500;
 }
 
 #schedule_board .day_col .schedule {
+  font-weight: 400;
   position: absolute;
   width: 100%;
   background-color: #BDE7FF;
@@ -259,6 +291,21 @@ body .material-icons-outlined {
   color: #d60555;
 }
 
+#schedule_board .day_col.spacer button {
+  border-radius: 6px;
+  padding: 6px 2px;
+  transform: translateY(-8px);
+  transition: background-color 0.3s,opacity 0.3s;
+}
+
+#schedule_board .day_col.spacer button:hover {
+  background-color: #dddddd;
+}
+
+#schedule_board .day_col.spacer button:active {
+  opacity: 0.8;
+}
+
 #schedule_board .hour_bg {
   position: absolute;
   width: 100%;
@@ -268,8 +315,8 @@ body .material-icons-outlined {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #5a5a5a;
-  padding-top: 80px;
+  color: #646464;
+  padding-top: 100px;
 }
 
 #schedule_board .hour_bg .hour_row {
@@ -280,7 +327,7 @@ body .material-icons-outlined {
 #schedule_board .hour_bg .hour_row::after {
   content: "";
   display: block;
-  border-bottom: 1px solid #5a5a5a;
+  border-bottom: 1px solid #646464;
   width: 100%;
   margin-left: 20px;
 }

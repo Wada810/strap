@@ -1,0 +1,204 @@
+@charset "UTF-8";
+#group_chat {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  overflow: auto;
+}
+
+#group_chat h2 {
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 15px;
+  transform: translateY(-40px);
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #fcfeff;
+}
+
+#group_chat .chat_box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 25vw;
+}
+
+#group_chat .chat_box .chat {
+  display: flex;
+  gap: 20px;
+}
+
+#group_chat .chat_box .chat .user {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+#group_chat .chat_box .chat .user .time {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+#group_chat .chat_box .chat .user .img img {
+  margin-top: 1rem;
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  background-color: #646464;
+  border-radius: 100px;
+}
+
+#group_chat .chat_box .chat .text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#group_chat .chat_box .chat .text .user_name {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+#group_chat .chat_box .chat .text p {
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 16px;
+  padding: 14px;
+  background-color: #e9edf5;
+}
+
+#group_chat .chat_box .you {
+  gap: 5px;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+#group_chat .chat_box .you .text p {
+  background-color: #cfffd9;
+  border-bottom-right-radius: 0px;
+}
+
+#group_chat .chat_box .send_chat {
+  display: flex;
+  gap: 10px;
+}
+
+#group_chat .chat_box .send_chat textarea {
+  padding: 8px;
+  background-color: #e9edf5;
+  width: 100%;
+  border-radius: 8px;
+}
+
+#group_chat .chat_box .send_chat .tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+#group_chat .chat_box .send_chat .tools button {
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+#group_chat .chat_box .send_chat .tools button:hover {
+  opacity: 0.9;
+}
+
+#group_chat .chat_box .send_chat .tools button:active {
+  opacity: 0.7;
+}
+
+#group_chat .chat_box .send_chat .tools .btn_grey span {
+  background-color: #646464;
+  border-radius: 4px;
+}
+
+#group_chat .chat_box .send_chat .tools span {
+  color: #fcfeff;
+  background-color: #54d369;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 2rem !important;
+}
+
+.top_navis {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 30px;
+}
+
+.top_navis button {
+  border-radius: 4px;
+  position: relative;
+  transition: opacity 0.2s, box-shadow 0.2s,  background-color 0.2s;
+}
+
+.top_navis button:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.top_navis button:hover span {
+  color: #0c0c0c;
+}
+
+.top_navis button:active {
+  opacity: 0.7;
+}
+
+.top_navis button span {
+  color: #646464;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 2rem !important;
+}
+
+.top_navis button.active span {
+  color: #0c0c0c;
+  background-color: #fcfeff;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.top_navis button::after {
+  content: "";
+  border-radius: 4px;
+  opacity: 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  white-space: nowrap;
+  background-color: #272727;
+  display: block;
+  color: #fcfeff;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(110%);
+  width: fit-content;
+}
+
+.top_navis button:hover::after {
+  opacity: 0.8 !important;
+  transition: opacity .5s;
+}
+
+.top_navis button:nth-of-type(1):hover::after {
+  content: "ページの内容です";
+}
+
+.top_navis button:nth-of-type(2):hover::after {
+  content: "ページの内容です";
+}
+
+.top_navis button:nth-of-type(3):hover::after {
+  content: "ページの内容です";
+}
