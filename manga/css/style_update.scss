@@ -1,0 +1,283 @@
+:root {
+    --tablec: #fdfdfd;
+    --rowhov: #ebebf0;
+    --black: #011627;
+    --body : #187c9d;
+    --valid_bg: #e3f3e6;
+    --invalid_bg: #f3e6e6;
+
+}
+:root[theme="dark"] {
+    --tablec: #3e4052;
+    --rowhov: #2c2e41;
+    --black: #dee6ee;
+    --body : #1d1b22;
+    --valid_bg: #032c0a;
+    --invalid_bg: #420404;
+}
+
+$grey: #6b6b6b;
+$subc: #187c9d;
+$subsub: #64c9b9;
+$accent: #eb2e6d;
+$valid: #21ca3d;
+$invalid: #d81010;
+$bdr: 4px;
+$fs: 16px;
+$lh: 1.5em;
+$shadow-2dp: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+$shadow-3dp: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+$shadow-4dp: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+$shadow-6dp: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+$shadow-8dp: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+$shadow-16dp: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+::selection{
+    background-color: $subc;
+    color: var(--tablec);
+}
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    color: var(--black);
+    background-color: var(--body);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    font-size: $fs;
+    letter-spacing: 1px;
+}
+section{
+    margin: 50px 0;
+    padding: 50px;
+    box-shadow: $shadow-8dp;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: var(--tablec);
+    border-radius: $bdr;
+}
+.attension{
+    width: 30rem;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    span{
+        margin-right: 8px;
+    }
+}
+h1{
+    border-left: 6px solid $subc;
+    color: var(--black);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    padding-left: 5px;
+}
+form{
+    width: 30rem;
+    margin: 0 auto;
+    & > div{
+        margin: 2rem 0;
+    }
+}
+.input_box{
+    position: relative;
+    label{
+        display: block;
+        margin-bottom: 8px;
+    }
+    input{
+        font-size: 0.9rem;
+        border: 1px solid var(--rowhov);
+        border-radius: $bdr;
+        padding: 0.2rem 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        background-color: var(--rowhov);
+        transition-property: border-color,background-color, box-shadow;
+        transition-duration: .3s;
+        width: 100%;
+        &:focus{
+            border-color: $subsub;
+            background-color: var(--tablec);
+            box-shadow: $shadow-2dp;
+        }
+    }
+}
+.unit{
+    position: absolute;
+    right: 4px;
+    bottom: 10px;
+}
+.wrapper{
+    display: flex;
+    gap: 16px;
+    .input_box{
+        width: 50%;
+        & > div{
+            display: flex;
+            align-items: center;
+        }
+    }
+    input{
+        width: 100%;
+        text-align: right;
+        padding-right: 1.5rem;
+    }
+}
+.date_wrapper{
+    input{
+        text-align: right;
+        width: 100%;
+    }
+}
+.date_box{
+    display: flex;
+    gap: 16px;
+    & > div{
+        position: relative;
+        padding-top: 0.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        &:nth-of-type(1){
+            width: 50%;
+        }
+        &:nth-of-type(2){
+            width: 25%;
+        }
+        &:nth-of-type(3){
+            width: 25%;
+        }
+    }
+    label{
+        position: absolute;
+        top: -1.1rem;
+    }
+}
+.button_box{
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 0;
+}
+button{
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: $bdr;
+    padding: 8px 16px;
+    text-align: center;
+    transition-property: background-color, box-shadow;
+    transition-duration: .3s;
+    &:hover{
+        box-shadow: $shadow-2dp;
+    }
+    &:disabled{
+        background-color: $grey;
+        color: var(--rowhov);
+        &:hover{
+            box-shadow: none;
+        }
+        &:hover #dialogue{
+            visibility: visible;
+        }
+    }
+}
+.cancel{
+    background-color: var(--rowhov);
+}
+.submit{
+    width: 10rem;
+    background-color: $subsub;
+    position: relative;
+}
+.error_msg{
+    font-size: 0.8rem;
+    font-weight: 400;
+    position: absolute;
+    color: $invalid;
+    margin-top: 4px;
+}
+.valid{
+    border-color: $valid !important;
+    background-color: var(--valid_bg) !important;
+}
+.invalid{
+    border-color: $invalid !important;
+    background-color: var(--invalid_bg) !important;
+}
+#dialogue{
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    span{
+        margin-right: 4px;
+        color: $invalid;
+    }
+    padding: 4px;
+    border-radius: $bdr;
+    background-color: var(--tablec);
+    border: 1px solid $invalid;
+    color: var(--black);
+    position: absolute;
+    bottom: 110%;
+    right: 0;
+    width: fit-content;
+    box-shadow: $shadow-3dp;
+}
+.file{
+    width: 100%;
+    label{
+        display: block;
+        margin-bottom: 8px;
+    }
+    input{
+        position: absolute;
+        left:0;
+        top:0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    #alt_area{
+        position: relative;
+        background-color: var(--tablec);
+        border: 3px dashed var(--rowhov);
+        border-radius: $bdr;
+        padding: 32px;
+        overflow: hidden;
+        & > div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 16px;
+        }
+        img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            pointer-events: none;
+            height: 100%;
+        }
+        .material-icons{
+            font-size: 3rem !important;
+        }
+    }
+    .accept{
+        color: $grey;
+    }
+    #select_img{
+        display: block;
+        margin-left: auto;
+        font-size: 0.7rem;
+        color: #fdfdfd;
+        background-color: $subc;
+        border-radius: $bdr;
+        padding: 8px 12px;
+        width: fit-content;
+        max-width: 100%;
+    }
+}

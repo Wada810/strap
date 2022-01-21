@@ -1,0 +1,74 @@
+:root {
+  --tablec: #fdfdfd;
+  --black: #011627;
+  --body: #187c9d;
+}
+
+:root[theme="dark"] {
+  --tablec: #3e4052;
+  --black: #dee6ee;
+  --body: #1d1b22;
+}
+
+::selection {
+  background-color: #187c9d;
+  color: var(--tablec);
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--black);
+  background-color: var(--body);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+section {
+  margin: 50px 0;
+  padding: 50px;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: var(--tablec);
+  border-radius: 4px;
+  text-align: center;
+}
+
+section span {
+  color: #d81010;
+  font-size: 3rem !important;
+}
+
+section h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #d81010;
+}
+
+section img {
+  height: 100%;
+  max-height: 30vh;
+  margin-bottom: 30px;
+}
+
+section p {
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: 40vw;
+}
+
+section .link {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: underline;
+  color: #187c9d;
+}
+
+section .link:hover {
+  opacity: 0.8;
+}
