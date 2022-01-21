@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/destyle.css"><!-- destyle -->
     <link rel="stylesheet" href="css/style.css"><!-- 共通css -->
     <link rel="stylesheet" href="css/style.css"><!-- 各ページの固有css -->
-    <link rel="stylesheet" href="css/modal.css"><!-- モーダルのcss -->
-    <link rel="stylesheet" href="css/form.css"><!-- フォームのcss -->
     <!-- Googel Font CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,9 +94,20 @@
         <section id="right_column_contents">
             <section>
                 <button class="btn btn-green icon_in" id="add_schedule_btn">Add Schedule<span class="material-icons-outlined">add_box</span></button>
+                <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
                 <div id="schedule_board">
-                    <div class="day_col"></div>
-                    <div class="day_col">1/17<div>(Mon)</div>
+                    <div class="day_fixed"></div>
+                    <div class="day_fixed">月</div>
+                    <div class="day_fixed">火</div>
+                    <div class="day_fixed">水</div>
+                    <div class="day_fixed">木</div>
+                    <div class="day_fixed">金</div>
+                    <div class="day_fixed">土</div>
+                    <div class="day_fixed">日</div>
+                    <div class="day_fixed"></div>
+
+                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <div class="day_col">1/17
                         <div class="schedule" style="top: 500px; height: 90px;">
                             <div class="title">IH12</div>
                             <div class="time">12:00~1:30</div>
@@ -112,28 +121,30 @@
                             <div class="time">12:00~1:30</div>
                         </div>
                     </div>
-                    <div class="day_col">1/18<div>(Tue)</div>
+                    <div class="day_col">1/18
+                    </div>
+                    <div class="day_col">1/19
                         <div class="schedule" style="top: 195px; height: 390px;">
                             <div class="title">IH12</div>
                             <div class="time">12:00~1:30</div>
                         </div>
                     </div>
-                    <div class="day_col">1/19<div>(Wed)</div>
-                    </div>
-                    <div class="day_col">1/20<div>(Thu)</div>
+                    <div class="day_col">1/20
                         <div class="schedule red" style="top: 390px; height: 150px;">
                             <div class="title">IH12</div>
                             <div class="time">12:00~1:30</div>
                         </div>
                     </div>
-                    <div class="day_col">1/21<div>(Fri)</div>
+                    <div class="day_col">1/21
                     </div>
-                    <div class="day_col">1/22<div>(Sat)</div>
+                    <div class="day_col">1/22
                     </div>
-                    <div class="day_col">1/23<div>(Sun)</div>
+                    <div class="day_col">1/23
                     </div>
+                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="hour_bg">
+                        <div class="hour_row top"></div>
                         <div class="hour_row">0:00</div>
                         <div class="hour_row">1:00</div>
                         <div class="hour_row">2:00</div>
@@ -163,90 +174,6 @@
                 </div>
             </section>
         </section>
-        <?php //会員登録用モーダル表示ボタン ?>
-        <p id="open_login_modal">会員登録</p>
     </main>
-    <?php //会員登録用モーダル ?>
-    <div id="login_modal_wrapper" class="modal_wrapper <?php echo $login_modal ?>">
-        <form id="login_modal" class="f_box modal_box" action="" method="post" enctype="multipart/form-data">
-            <?php //閉じる用のアイコンボタン  ?>
-            <span class="material-icons-outlined modal_close" id="login_modal_close">cancel</span>
-            <?php // 入力欄：「ログインID」 ?>
-            <div class="f_container">
-                <div class="f_title_parts">
-                    <p class="f_required">必須</p>
-                    <p class="f_title">ログインID</p>
-                </div>
-                <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="login_id" value="<?php echo $_POST['login_id']; ?>">
-                </div>
-                <div class="f_discription_parts">
-                    <p class="f_explanation">他のユーザーと被らないユニークなIDを入力してください　<span></span></p>
-                    <p class="f_error"><?php echo isset($error['login_id']) ? $error['login_id'] : ''; ?></p>
-                </div>
-            </div>
-            <?php // 入力欄：「氏名」 ?>
-            <div class="f_container">
-                <div class="f_title_parts">
-                    <p class="f_required">必須</p>
-                    <p class="f_title">氏名</p>
-                </div>
-                <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="name" value="<?php echo $_POST['name']; ?>">
-                </div>
-                <div class="f_discription_parts">
-                    <p class="f_error"><?php echo isset($error['name']) ? $error['name'] : ''; ?></p>
-                </div>
-            </div>
-            <?php // 入力欄：「パスワード」 ?>
-            <div class="f_container">
-                <div class="f_title_parts">
-                    <p class="f_required">必須</p>
-                    <p class="f_title">パスワード</p>
-                </div>
-                <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="password" value="<?php echo $_POST['password']; ?>">
-                </div>
-                <div class="f_discription_parts">
-                    <p class="f_explanation">半角ファイル角数字を組み合わせた6文字以上のパスワードを設定してください</p>
-                    <p class="f_error"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
-                </div>
-            </div>
-            <?php // 入力欄：「確認用パスワード」 ?>
-            <div class="f_container">
-                <div class="f_title_parts">
-                    <p class="f_required">必須</p>
-                    <p class="f_title">確認用パスワード</p>
-                </div>
-                <div class="f_input_parts">
-                    <input id="end_form" class="f_input login_form" type="text" name="check_password" value="<?php echo $_POST['check_password']; ?>">
-                </div>
-                <div class="f_discription_parts">
-                    <p class="f_error"><?php echo isset($error['check_password']) ? $error['check_password'] : ''; ?></p>
-                </div>
-            </div>
-            <?php // 入力欄：「アイコン画像」 ?>
-            <div class="f_container">
-                <div class="f_title_parts">
-                    <p class="f_required">必須</p>
-                    <p class="f_title">アイコン画像</p>
-                </div>
-                <div class="f_input_parts">
-                    <div class="f_img_display"><img id="display_img" class="f_display_img" src="./img/jpg/human.jpg" alt=""></div>
-                    <label class="f_file_button">画像をアップロード<input id="file" type="file" name="file"></label>
-                    <div id="selected_file" class="f_selected_file">ファイルが選択されていません</div>
-                </div>
-                <div class="f_discription_parts">
-                    <p class="f_explanation">対応ファイル形式：「png」「jpg」「jpeg」のいずれか</p>
-                    <p class="f_error"><?php echo isset($error['icon_img']) ? $error['icon_img'] : ''; ?></p>
-                </div>
-            </div>
-            <button class="f_submit" name="button" value="submit">会員登録を行う</button>
-        </form>
-    </div>
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/modal.js"></script>
-    <script src="./js/img_display.js"></script>
-    <script src="./js/key_forcus.js"></script>
 </body>
 </html>
