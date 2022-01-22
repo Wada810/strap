@@ -1,0 +1,187 @@
+@import "variables";
+
+.gl_unique_parts1{
+    margin: 10px auto 0 auto !important;
+}
+
+.gl_unique_parts2{
+    width: 594px;
+    margin: 0 auto 20px auto;
+}
+
+#group_add_section{
+    font-family: $gothic;
+    color: $main_text_color;
+    width: 324px;
+    padding: 53px 27px;
+    h2{
+        font-weight: 900;
+        font-size: 28px;
+        line-height: 30px;
+    }
+    p:nth-of-type(1){
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 23px 0;
+    }
+    .chat_box{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 25vw;
+        .chat{
+            display: flex;
+            gap: 20px;
+            .user{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                align-items: center;
+                .time{
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                }
+                .img{
+                    img{
+                        margin-top: 1rem;
+                        display: block;
+                        width: 50px;
+                        height: 50px;
+                        object-fit: cover;
+                        background-color: $grey;
+                        border-radius: 100px;
+                    }
+                }
+            }
+            .text{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                .user_name{
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                }
+                p{
+                    font-weight: 300;
+                    font-size: 14px;
+                    border-radius: 16px;
+                    padding: 14px;
+                    background-color: $light_blue;
+                }
+            }
+        }
+        .you{
+            gap: 5px;
+            width: 100%;
+            align-items: flex-end;
+            justify-content: flex-end;
+            .text p{
+                background-color: $you;
+                border-bottom-right-radius: 0px;
+            }
+        }
+        .send_chat{
+            display: flex;
+            gap: 10px;
+            textarea{
+                padding: 8px;
+                background-color: $light_blue;
+                width: 100%;
+                border-radius: 8px;
+            }
+            .tools{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                gap: 8px;
+                button{
+                    border-radius: 4px;
+                    transition: opacity 0.2s;
+                    &:hover{
+                        opacity: 0.9;
+                    }
+                    &:active{
+                        opacity: 0.7;
+                    }
+                }
+                .btn_grey{
+                    span{
+                        background-color: $grey;
+                        border-radius: 4px;
+                    }
+                }
+                span{
+                    color: $white;
+                    background-color: $green;
+                    border-radius: 4px;
+                    padding: 4px;
+                    font-size: 2rem !important;
+                }
+            }
+        }
+    }
+}
+.top_navis{
+    margin-bottom: 50px;
+    display: flex;
+    gap: 30px;
+    button{
+        border-radius: 4px;
+        position: relative;
+        transition: opacity 0.2s, box-shadow 0.2s,  background-color 0.2s;
+        &:hover{
+            opacity: 0.9;
+            box-shadow: $shadow_2dp;
+            span{
+                color: $text_color;
+            }
+        }
+        &:active{
+            opacity: 0.7;
+        }
+        span{
+            color: $grey;
+            border-radius: 4px;
+            padding: 4px;
+            font-size: 2rem !important;
+        }
+        &.active{
+            span{
+                color: $text_color;
+                background-color: $white;
+                box-shadow: $shadow_3dp;
+            }
+        }
+        &::after{
+            content: "";
+            border-radius: 4px;
+            opacity: 0;
+            font-size: 0.8rem;
+            font-weight: 300;
+            white-space: nowrap;
+            background-color: $dark_grey;
+            display: block;
+            color: $white;
+            padding: 4px 8px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(110%);
+            width: fit-content;
+        }
+        &:hover::after{
+            opacity: 0.8 !important;
+            transition: opacity .5s;
+        }
+        &:nth-of-type(1):hover::after{
+            content: "ページの内容です";
+        }
+        &:nth-of-type(2):hover::after{
+            content: "ページの内容です";
+        }
+        &:nth-of-type(3):hover::after{
+            content: "ページの内容です";
+        }
+    }
+}

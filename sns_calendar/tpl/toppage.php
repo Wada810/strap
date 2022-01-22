@@ -190,7 +190,7 @@
                     <p class="f_title">ログインID</p>
                 </div>
                 <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="login_id" value="<?php echo $_POST['login_id']; ?>">
+                    <input class="f_input f_inputsize_signin login_form" type="text" name="login_id" value="<?php echo $_POST['login_id']; ?>">
                 </div>
                 <div class="f_discription_parts">
                     <p class="f_explanation">他のユーザーと被らないユニークなIDを入力してください　<span></span></p>
@@ -204,7 +204,7 @@
                     <p class="f_title">氏名</p>
                 </div>
                 <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="name" value="<?php echo $_POST['name']; ?>">
+                    <input class="f_input f_inputsize_signin login_form" type="text" name="name" value="<?php echo $_POST['name']; ?>">
                 </div>
                 <div class="f_discription_parts">
                     <p class="f_error"><?php echo isset($error['name']) ? $error['name'] : ''; ?></p>
@@ -217,7 +217,7 @@
                     <p class="f_title">パスワード</p>
                 </div>
                 <div class="f_input_parts">
-                    <input class="f_input login_form" type="text" name="password" value="<?php echo $_POST['password']; ?>">
+                    <input class="f_input f_inputsize_signin login_form" type="text" name="password" value="<?php echo $_POST['password']; ?>">
                 </div>
                 <div class="f_discription_parts">
                     <p class="f_explanation">半角ファイル角数字を組み合わせた6文字以上のパスワードを設定してください</p>
@@ -231,7 +231,7 @@
                     <p class="f_title">確認用パスワード</p>
                 </div>
                 <div class="f_input_parts">
-                    <input id="end_form" class="f_input login_form" type="text" name="check_password" value="<?php echo $_POST['check_password']; ?>">
+                    <input id="end_form" class="f_input f_inputsize_signin login_form" type="text" name="check_password" value="<?php echo $_POST['check_password']; ?>">
                 </div>
                 <div class="f_discription_parts">
                     <p class="f_error"><?php echo isset($error['check_password']) ? $error['check_password'] : ''; ?></p>
@@ -244,7 +244,7 @@
                     <p class="f_title">アイコン画像</p>
                 </div>
                 <div class="f_input_parts">
-                    <div class="f_img_display"><img id="display_img" class="f_display_img" src="./img/jpg/human.jpg" alt=""></div>
+                    <div class="f_img_display_1"><img id="display_img" class="f_display_img" src="./img/jpg/human.jpg" alt=""></div>
                     <label class="f_file_button">画像をアップロード<input id="file" type="file" name="file"></label>
                     <div id="selected_file" class="f_selected_file">ファイルが選択されていません</div>
                 </div>

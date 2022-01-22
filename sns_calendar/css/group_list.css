@@ -4,52 +4,60 @@
 /* フォント */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
 /* 共通パーツ */
-#group_chat {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 80px);
-  overflow: auto;
+.gl_unique_parts1 {
+  margin: 10px auto 0 auto !important;
 }
 
-#group_chat h2 {
+.gl_unique_parts2 {
+  width: 594px;
+  margin: 0 auto 20px auto;
+}
+
+#group_add_section {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #022F32;
+  width: 324px;
+  padding: 53px 27px;
+}
+
+#group_add_section h2 {
   font-weight: 900;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  width: 100%;
-  padding-top: 40px;
-  padding-bottom: 15px;
-  transform: translateY(-40px);
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #fcfeff;
+  font-size: 28px;
+  line-height: 30px;
 }
 
-#group_chat .chat_box {
+#group_add_section p:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 23px 0;
+}
+
+#group_add_section .chat_box {
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-width: 25vw;
 }
 
-#group_chat .chat_box .chat {
+#group_add_section .chat_box .chat {
   display: flex;
   gap: 20px;
 }
 
-#group_chat .chat_box .chat .user {
+#group_add_section .chat_box .chat .user {
   display: flex;
   flex-direction: column;
   gap: 2px;
   align-items: center;
 }
 
-#group_chat .chat_box .chat .user .time {
+#group_add_section .chat_box .chat .user .time {
   font-size: 0.9rem;
   font-weight: 300;
 }
 
-#group_chat .chat_box .chat .user .img img {
+#group_add_section .chat_box .chat .user .img img {
   margin-top: 1rem;
   display: block;
   width: 50px;
@@ -59,18 +67,18 @@
   border-radius: 100px;
 }
 
-#group_chat .chat_box .chat .text {
+#group_add_section .chat_box .chat .text {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-#group_chat .chat_box .chat .text .user_name {
+#group_add_section .chat_box .chat .text .user_name {
   font-size: 0.9rem;
   font-weight: 300;
 }
 
-#group_chat .chat_box .chat .text p {
+#group_add_section .chat_box .chat .text p {
   font-weight: 300;
   font-size: 14px;
   border-radius: 16px;
@@ -78,56 +86,56 @@
   background-color: #e9edf5;
 }
 
-#group_chat .chat_box .you {
+#group_add_section .chat_box .you {
   gap: 5px;
   width: 100%;
   align-items: flex-end;
   justify-content: flex-end;
 }
 
-#group_chat .chat_box .you .text p {
+#group_add_section .chat_box .you .text p {
   background-color: #cfffd9;
   border-bottom-right-radius: 0px;
 }
 
-#group_chat .chat_box .send_chat {
+#group_add_section .chat_box .send_chat {
   display: flex;
   gap: 10px;
 }
 
-#group_chat .chat_box .send_chat textarea {
+#group_add_section .chat_box .send_chat textarea {
   padding: 8px;
   background-color: #e9edf5;
   width: 100%;
   border-radius: 8px;
 }
 
-#group_chat .chat_box .send_chat .tools {
+#group_add_section .chat_box .send_chat .tools {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
 }
 
-#group_chat .chat_box .send_chat .tools button {
+#group_add_section .chat_box .send_chat .tools button {
   border-radius: 4px;
   transition: opacity 0.2s;
 }
 
-#group_chat .chat_box .send_chat .tools button:hover {
+#group_add_section .chat_box .send_chat .tools button:hover {
   opacity: 0.9;
 }
 
-#group_chat .chat_box .send_chat .tools button:active {
+#group_add_section .chat_box .send_chat .tools button:active {
   opacity: 0.7;
 }
 
-#group_chat .chat_box .send_chat .tools .btn_grey span {
+#group_add_section .chat_box .send_chat .tools .btn_grey span {
   background-color: #646464;
   border-radius: 4px;
 }
 
-#group_chat .chat_box .send_chat .tools span {
+#group_add_section .chat_box .send_chat .tools span {
   color: #fcfeff;
   background-color: #54d369;
   border-radius: 4px;
@@ -207,4 +215,4 @@
 .top_navis button:nth-of-type(3):hover::after {
   content: "ページの内容です";
 }
-/*# sourceMappingURL=group.css.map */
+/*# sourceMappingURL=group_list.css.map */

@@ -38,7 +38,6 @@
 }
 
 .f_input{
-    width: 421px;
     height: 36px;
     border-radius: 6px;
     background-color: #F5F4F7;
@@ -52,6 +51,29 @@
     &:focus{
         background-color: #deffd5;
     }
+}
+
+.f_inputsize_signin{
+    width: 421px;
+}
+
+.f_inputsize_creategroup{
+    width: 594px;
+    margin: 10px auto 0 auto;
+    display: block;
+}
+
+.f_big_title{
+    width: 594px;
+    font-size: 28px;
+    font-family: $gothic;
+    color: $main_text_color;
+    margin: 0 auto;
+}
+
+.f_center{
+    width: 594px;
+    margin: 0 auto;
 }
 
 .f_explanation{
@@ -91,7 +113,7 @@
 }
 
 
-.f_img_display{
+.f_img_display_1{
     width: 45px;
     height: 45px;
     display: flex;
@@ -105,6 +127,22 @@
         height: 100%;
         display: block;
         border-radius: 6px;
+    }
+}
+.f_img_display_2{
+    width: 51px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 19px;
+    border-radius: 26px;
+    .f_display_img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 26px;
     }
 }
 input[type="file"]{
@@ -155,5 +193,84 @@ input[type="file"]{
     transition: background 0.5s;
     &:hover{
         background-color: #359153;
+    }
+}
+
+.select_display_area{
+    width: 594px;
+    margin: 10px auto 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.select_item{
+    margin: 4px;
+    display: flex;
+    height: 31px;
+    width: fit-content;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 6px;
+    background-color: $main_text_color;
+    img{
+        height: 15px;
+        width: 15px;
+        border-radius: 8px;
+        margin-right: 3px;
+    }
+    p{
+        display: flex;
+        align-items: center;
+        padding-bottom: 2px;
+        font-family: $gothic;
+        color: white;
+        font-size: 12px;
+        font-weight: 400;
+        margin-right: 10px;
+    }
+    .tag_del{
+        font-size: 15px;
+        color: white;
+        display: block;
+        transition: color 0.5s;
+        &:hover{
+            color: rgb(255, 72, 72);  
+        }
+    }
+}
+
+#candidate{
+    width: 594px;
+    background-color: white;
+    position: absolute;
+    left: 120px;
+    .candidate_box{
+        height: 30px;
+        width: 594px;
+        padding: 0 17px;
+        margin: 4px 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(226, 255, 228);
+        }
+        p:nth-of-type(1){
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            margin-right: 15px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        p:nth-of-type(2){
+            width: 200px;
+        }
+        p:nth-of-type(2){
+            width: 330px;
+        }
     }
 }
