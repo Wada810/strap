@@ -146,7 +146,12 @@ if(isset($_COOKIE["login"])){
         header("location: ./toppage.php");
         exit;
     }else{
-        $_POST['group_name'] = '';
+        $_POST['login_id'] = '';
+        $_POST['name'] = '';
+        $_POST['password'] = '';
+        $_POST['check_password'] = '';
+        $_POST['signin_id'] = '';
+        $_POST['signin_password'] = '';
     }
 }
 require_once './tpl/'.basename(__FILE__);
