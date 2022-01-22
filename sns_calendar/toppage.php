@@ -24,6 +24,16 @@ if(isset($_COOKIE["login"])){
         exit;
     }
 
+    //カレンダーのボタン処理
+        $week_back = -1;
+        $week_next = 1;
+        $modf = "";
+    if(isset($_GET["week_change"])){
+        $week_back = $_GET["week_change"] - 1;
+        $week_next = $_GET["week_change"] + 1;
+        $modf = $_GET["week_change"];
+    }
+
 
     //現在ログインしているユーザーの情報を取得
     $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);

@@ -19,6 +19,7 @@
     <title>Top Page</title>
 </head>
 <body>
+    <form method="get" id="form"></form>
     <div id="dialog" class="<?php print $dialog_visibility;?>"><?php print $dialog;?><span class="material-icons-outlined" id="dialog_close">close</span></div>
     <header>
         <ul>
@@ -118,7 +119,7 @@
                 <button class="btn btn-green icon_in" id="open_add_schedule_modal">Add Schedule<span class="material-icons-outlined">add_box</span></button>
                 <?php } ?>
                 <!-- カレンダー -->
-                <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
+                <!-- <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div> -->
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
                     <div class="day_fixed">月</div>
@@ -130,15 +131,13 @@
                     <div class="day_fixed">日</div>
                     <div class="day_fixed"></div>
 
-                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
-                    <div class="day_col">1/17</div>
-                    <div class="day_col">1/18</div>
-                    <div class="day_col">1/19</div>
-                    <div class="day_col">1/20</div>
-                    <div class="day_col">1/21</div>
-                    <div class="day_col">1/22</div>
-                    <div class="day_col">1/23</div>
-                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+                    <div class="day_col spacer"><button id="week_back" form="form" name="week_change" value="<?php print $week_back ?>"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <?php
+                    foreach(get_c_d($modf) as $val){?>
+                        <div class="day_col"><?php print $val;?></div><?php
+                    }
+                    ?>
+                    <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="frame spacer"></div>
                     <div class="frame"></div>
@@ -293,7 +292,8 @@
     <?php if(isset($_COOKIE["login"])){?>
     <script>
         /* phpで取得したスケジュールの配列をjsにjsonでわたす */
-        let schedules = <?php print json_encode(get_p_s());?>;
+        let schedules = <?php print json_encode(get_p_s($modf));?>;
+        console.log(schedules);
     </script><?php
     }?>
     <script src="./js/jquery-3.3.1.min.js"></script>

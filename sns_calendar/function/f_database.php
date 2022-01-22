@@ -231,9 +231,14 @@ function embody_schedule(){
    }
    return true;
 }
-function get_p_s($start="",$end=""){
-   $start = new DateTime($start);
-   $end = new DateTime($end);
+function get_p_s($modifier=""){
+   if($modifier != ""){
+      $mod = new DateTime();
+      $mod->modify("+" . $modifier . " weeks");
+      $modifier = $mod->format("Y-m-d");
+   }
+   $start = new DateTime($modifier);
+   $end = new DateTime($modifier);
    $start->modify("Monday this week");
    $end->modify("Monday next week");
    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
@@ -244,5 +249,19 @@ function get_p_s($start="",$end=""){
    $result = db_run($link,$query);
    return get_data($result);
 }
-
+function get_c_d($modifier=""){
+   if($modifier != ""){
+      $mod = new DateTime();
+      $mod->modify("+" . $modifier . " weeks");
+      $modifier = $mod->format("Y-m-d");
+   }
+   $list = [];
+   $day = new DateTime($modifier);
+   $day->modify("Monday this week");
+   for($i = 0; $i < 7; $i ++){
+      $list[] = $day->format("m/d");
+      $day->modify("+1 days");
+   }
+   return $list;
+}
 ?>
