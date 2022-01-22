@@ -57,7 +57,6 @@ $sql = "SELECT * FROM user WHERE id = " . $_COOKIE["login"];
 $result = db_run($link,$sql);
 //フェッチ処理
 $user_data = mysqli_fetch_assoc($result);
-
 //================================
 //●グループ情報の取得
 //================================
@@ -72,6 +71,7 @@ $group_data = get_data($result);
 if(!$group_data){
     $group_data = [];
 }
+
 
 require_once './tpl/'.basename(__FILE__);
 ?>

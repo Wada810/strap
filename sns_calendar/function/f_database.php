@@ -201,7 +201,7 @@ function embody_schedule(){
    $end = new DateTime($data["end"]);
 
    if($_POST["repeat_every"] == "no"){
-      $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("H:i:s") . "', '" . $end->format("H:i:s") . "', '" . $category . "')";
+      $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("Y-m-d H:i:s") . "', '" . $end->format("Y-m-d H:i:s") . "', '" . $category . "')";
       $result = mysqli_query($link,$query);
       //SQLをうまく実行出来なかった
       if(!$result){

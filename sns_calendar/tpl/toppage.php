@@ -24,7 +24,7 @@
     <header>
         <ul>
             <li class="active"><a href="toppage.php">個人スケジュール</a></li>
-            <li><a href="group.php">グループスケジュール</a></li>
+            <!-- <li><a href="group.php">グループスケジュール</a></li> -->
         </ul>
     </header>
     <main id="contents_wrapper">
@@ -51,14 +51,14 @@
             <!-- グループ -->
             <section id="groups">
                 <h2>Schedule Group</h2>
-                <div class="gorup_box">
-                    <img src="" alt="グループアイコン">
-                    <div class="box">
-                        <p class="group_name">IH開発</p>
-                        <p class="leader"><span>schedule leader:</span>矢野 昭介</p>
-                        <p class="comment"><span>(今日)</span>Git勉強会&意見交換の日程について</p>
-                    </div>
-                </div>
+                <?php foreach($group_data as $val){?>
+                    <div class="gorup_box">
+                        <img src="./img/group/<?php echo $val['group_id']; ?>/<?php echo $val['icon_img']; ?>" alt="グループアイコン">
+                        <div class="box">
+                            <p class="group_name"><?php print $val["group_name"] ?></p>
+                        </div>
+                    </div><?php
+                } ?><!--
                 <div class="gorup_box">
                     <img src="" alt="グループアイコン">
                     <div class="box">
@@ -82,11 +82,11 @@
                         <p class="leader"><span>schedule leader:</span>Canp運営_上野</p>
                         <p class="comment"><span>(2/12)</span>【新年１発目】SNSを盛り上げるWeb...</p>
                     </div>
-                </div>
+                </div> -->
                 <a href="./group_list.php" class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></a>
             </section>
             <!-- To do -->
-            <section id="todo">
+            <!-- <section id="todo">
                 <h2>To Do</h2>
                 <div class="task">
                     <p class="send_from">ハッカソン By 運営_上野</p>
@@ -109,7 +109,7 @@
                     <p class="comment">「第二回ネタ会議」がまもなくです。</p>
                 </div>
                 <button class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></button>
-            </section>
+            </section> -->
         <?php } ?>
         </section>
         <!-- 右側 -->
