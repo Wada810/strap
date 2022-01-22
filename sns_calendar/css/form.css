@@ -74,6 +74,12 @@
   line-height: 15px;
 }
 
+.f_error.signin {
+  margin-left: calc(189px + 112px);
+  font-size: 12;
+  font-weight: 400;
+}
+
 .f_title_parts {
   grid-row: 1/2;
   grid-column: 1/2;
@@ -166,4 +172,3 @@ input[type="file"] {
 .f_submit:hover {
   background-color: #359153;
 }
-/*# sourceMappingURL=form.css.map */

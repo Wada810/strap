@@ -1,7 +1,8 @@
 $(function(){
+    /////////会員登録////////////
     //モーダルを表示
     $('#open_login_modal').click(function(){
-        $('#login_modal_wrapper').fadeIn(500).css('display','flex');
+        $('#login_modal_wrapper').fadeIn(300).css('display','flex');
     });
     //伝播阻止
     $('#login_modal').click(function(e){
@@ -9,10 +10,27 @@ $(function(){
     });
     //背景部分でモーダルを閉じる
     $('#login_modal_wrapper').click(function(){
-        $('#login_modal_wrapper').fadeOut(500);
+        $('#login_modal_wrapper').fadeOut(300);
     });
     //閉じるボタンでモーダルを閉じる
     $('#login_modal_close').click(function(){
-        $('#login_modal_wrapper').fadeOut(500);
+        $('#login_modal_wrapper').fadeOut(300);
+    });
+    /////////ログイン////////////
+    //モーダルを表示
+    $('#open_signin_modal').click(function(){
+        $('#signin_modal_wrapper').fadeIn(300).css('display','flex');
+    });
+    //伝播阻止
+    $('#signin_modal').click(function(e){
+        e.stopPropagation();
+    });
+    //背景部分でモーダルを閉じる
+    $('#signin_modal_wrapper').click(function(){
+        $('#signin_modal_wrapper').fadeOut(300);
+    });
+    //閉じるボタンでモーダルを閉じる
+    $('#signin_modal_close').click(function(){
+        $('#signin_modal_wrapper').fadeOut(300);
     });
 });

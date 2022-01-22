@@ -11,6 +11,7 @@ require_once './function/my_functions.php';
 require_once './function/f_pager.php';
 require_once './function/f_login.php';
 require_once './function/f_image_edit.php';
+require_once './function/func_wada.php';
 //ヘッダー部処理の呼び出し
 /* require_once './header.php'; */
 ?>
