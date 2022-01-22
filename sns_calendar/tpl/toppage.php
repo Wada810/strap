@@ -125,21 +125,24 @@
                     <div class="day_fixed"></div>
 
                     <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
-                    <div class="day_col">1/17
-                    </div>
-                    <div class="day_col">1/18
-                    </div>
-                    <div class="day_col">1/19
-                    </div>
-                    <div class="day_col">1/20
-                    </div>
-                    <div class="day_col">1/21
-                    </div>
-                    <div class="day_col">1/22
-                    </div>
-                    <div class="day_col">1/23
-                    </div>
+                    <div class="day_col">1/17</div>
+                    <div class="day_col">1/18</div>
+                    <div class="day_col">1/19</div>
+                    <div class="day_col">1/20</div>
+                    <div class="day_col">1/21</div>
+                    <div class="day_col">1/22</div>
+                    <div class="day_col">1/23</div>
                     <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+
+                    <div class="frame spacer"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                    <div class="frame spacer"></div>
 
                     <div class="hour_bg">
                         <div class="hour_row">0:00</div>

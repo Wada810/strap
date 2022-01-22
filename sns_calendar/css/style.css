@@ -254,7 +254,7 @@ body .material-icons-outlined {
 #schedule_board {
   display: grid;
   grid-template-columns: 0.5fr repeat(7, 1fr) 0.5fr;
-  grid-template-rows: 2rem 1fr;
+  grid-template-rows: 2rem auto 1fr;
   min-height: 100vh;
   height: calc(24 * 70px);
   gap: 8px;
@@ -266,39 +266,41 @@ body .material-icons-outlined {
   justify-content: center;
 }
 
-#schedule_board .day_col {
+#schedule_board .frame {
   display: flex;
   justify-content: center;
   align-items: start;
   position: relative;
   z-index: 1;
-  grid-row: 2/3;
+  grid-row: 3/4;
   font-weight: 500;
 }
 
-#schedule_board .day_col .schedule {
+#schedule_board .frame .schedule {
   font-weight: 400;
   position: absolute;
   width: 100%;
-  background-color: #BDE7FF;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   border-radius: 6px;
-  color: #0027c2;
   font-size: 0.8rem;
   z-index: 10;
 }
 
-#schedule_board .day_col .schedule .title {
+#schedule_board .frame .schedule .title {
   font-weight: 500;
   font-size: 1rem;
 }
 
-#schedule_board .day_col .schedule.red {
-  background-color: #ffbdd1;
-  color: #d60555;
+#schedule_board .day_col {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+  grid-row: 2/3;
+  font-weight: 500;
 }
 
 #schedule_board .day_col.spacer button {
@@ -320,13 +322,14 @@ body .material-icons-outlined {
   position: absolute;
   width: 100%;
   height: 100%;
+  grid-row: 3/4;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: #646464;
-  padding-top: 100px;
+  padding-top: 0;
 }
 
 #schedule_board .hour_bg .hour_row {
