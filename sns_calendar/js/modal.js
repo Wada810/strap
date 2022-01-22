@@ -2,6 +2,7 @@ $(function(){
     /////////会員登録////////////
     //モーダルを表示
     $('#open_login_modal').click(function(){
+        console.log('aaa');
         $('#login_modal_wrapper').fadeIn(300).css('display','flex');
     });
     //伝播阻止

@@ -49,25 +49,27 @@
         <section id="right_column_contents">
             <section>
                 <h1 id="contents_title">Shedule Group</h1>
-                <div id="group_list">
+                <div id="group_list_container">
                     <?php foreach($group_data as $key => $value): ?>
-                        <div class='group_box'>
-                            <div class='left_group_box'>
-                                <img src="./img/group/<?php echo $value['group_id']; ?>/<?php echo $value['icon_img']; ?>" alt="">
-                            </div>
-                            <div class='right_group_box'>
-                                <h3 class="group_title"><?php echo $value['group_name']; ?></h3>
-                                <div class="group_member_box_container">
-                                    <p class="member_title">Member</p>
-                                    <div class="group_member_box">
-                                        <?php foreach($members[$key] as $value): ?>
-                                            <p class="group_member_icon"><img src="./img/user/<?php echo $value['user_id']; ?>/<?php echo $value['img_name']; ?>" alt=""></p>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                    <p>resent talk contents</p>
+                        <a id="group_list" href="./group.php?room_id=<?php echo $value['group_id']; ?>">
+                            <div class='group_box'>
+                                <div class='left_group_box'>
+                                    <img src="./img/group/<?php echo $value['group_id']; ?>/<?php echo $value['icon_img']; ?>" alt="">
                                 </div>
-                        </div>
+                                <div class='right_group_box'>
+                                    <h3 class="group_title"><?php echo $value['group_name']; ?></h3>
+                                    <div class="group_member_box_container">
+                                        <p class="member_title">Member</p>
+                                        <div class="group_member_box">
+                                            <?php foreach($members[$key] as $value): ?>
+                                                <p class="group_member_icon"><img src="./img/user/<?php echo $value['user_id']; ?>/<?php echo $value['img_name']; ?>" alt=""></p>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <p>resent talk contents</p>
+                                    </div>
+                            </div>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </section>
