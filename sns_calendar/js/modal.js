@@ -33,4 +33,21 @@ $(function(){
     $('#signin_modal_close').click(function(){
         $('#signin_modal_wrapper').fadeOut(300);
     });
+
+    //モーダルを表示
+    $('#open_create_group_modal').click(function(){
+        $('#create_group_modal_wrapper').fadeIn(500).css('display','flex');
+    });
+    //伝播阻止
+    $('#create_group_modal').click(function(e){
+        e.stopPropagation();
+    });
+    //背景部分でモーダルを閉じる
+    $('#create_group_modal_wrapper').click(function(){
+        $('#create_group_modal_wrapper').fadeOut(500);
+    });
+    //閉じるボタンでモーダルを閉じる
+    $('#create_group_modal_close').click(function(){
+        $('#create_group_modal_wrapper').fadeOut(500);
+    });
 });
