@@ -37,7 +37,7 @@ for(i = 0; i < schedules.length; i ++){
     let where = start.getDay();
     where = day_list[where];
 
-    $('.frame').eq(where).append('<div class="schedule" style="top: ' + distance + 'px; background-color: hsl(' + category[schedules[i]["category"]] + ', 100%, 87%); color: hsl(' + category[schedules[i]["category"]] + ', 100%, 38%); height : '
+    $('.frame').eq(where).append('<div class="schedule" style="top: ' + distance + 'px; background-color: hsla(' + category[schedules[i]["category"]] + ', 100%, 80%, 0.8); color: hsla(' + (category[schedules[i]["category"]] + 20) + ', 100%, 30%, 1); height : '
     + frame_height + 'px;"><div class="title">' + schedules[i]["title"] + '</div><div class="time">'
     + start.getHours().toString().padStart(2, "0") + ':' + start.getMinutes().toString().padStart(2, "0")
     + '~' + end.getHours().toString().padStart(2, "0") + ':' + end.getMinutes().toString().padStart(2, "0") + '</div></div>');
