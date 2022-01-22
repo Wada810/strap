@@ -281,6 +281,29 @@ body{
                 width: 100%;
                 margin-left: 20px;
             }
+            &.top{
+                &::after{
+                    border-bottom: 0px solid rgba(255, 255, 255, 0);
+                    width: 0;
+                    opacity: 0;
+                    display: none;
+
+                }
+            }
         }
+    }
+}
+#sign_box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    .login{
+        background-color: $green;
+        color: $white;
+    }
+    .signin{
+        border: 1px solid $green;
+        color: $green;
     }
 }
