@@ -70,10 +70,11 @@
 
 .f_big_title {
   width: 594px;
-  font-size: 28px;
+  text-align: start !important;
+  font-size: 28px !important;
   font-family: "Noto Sans JP", sans-serif;
   color: #022F32;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .f_center {
