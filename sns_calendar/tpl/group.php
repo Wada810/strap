@@ -181,7 +181,7 @@
                         <div class="hour_row">0:00</div>
                         <div class="hour_row">1:00</div>
                         <div class="hour_row">2:00</div>
-                        <div class="hourするow">3:00</div>
+                        <div class="hour_row">3:00</div>
                         <div class="hour_row">4:00</div>
                         <div class="hour_row">5:00</div>
                         <div class="hour_row">6:00</div>
