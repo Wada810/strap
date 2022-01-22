@@ -52,12 +52,12 @@
             <section id="groups">
                 <h2>Schedule Group</h2>
                 <?php foreach($group_data as $val){?>
-                    <div class="gorup_box">
+                    <a href="group.php?room_id=<?php print $val["group_id"] ?>" class="gorup_box">
                         <img src="./img/group/<?php echo $val['group_id']; ?>/<?php echo $val['icon_img']; ?>" alt="グループアイコン">
                         <div class="box">
                             <p class="group_name"><?php print $val["group_name"] ?></p>
                         </div>
-                    </div><?php
+                    </a><?php
                 } ?><!--
                 <div class="gorup_box">
                     <img src="" alt="グループアイコン">
