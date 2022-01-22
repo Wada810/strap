@@ -74,7 +74,7 @@
                         <p class="comment"><span>(2/12)</span>【新年１発目】SNSを盛り上げるWeb...</p>
                     </div>
                 </div>
-                <button class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></button>
+                <a href="./group_list.php" class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></a>
             </section>
             <!-- To do -->
             <section id="todo">
