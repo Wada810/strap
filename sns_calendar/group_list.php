@@ -77,6 +77,7 @@ if(isset($_POST['button']) && $_POST['button'] == 'submit'){
         //================================
         //●メンバー保存用の配列を作成
         //================================
+        $in_room[] = [$id[0]['id'],$_COOKIE['login']];
         foreach($_POST['member_id'] as $value){
             $in_room[] = [$id[0]['id'],$value];
         }
@@ -94,6 +95,9 @@ if(isset($_POST['button']) && $_POST['button'] == 'submit'){
         $sql = create_insert_sql($table,$colomn,$data);
         //--sqlを実行する
         $result = db_run($link,$sql);
+
+        header('location:./group_list.php');
+        exit;
         
     }
     else{
@@ -104,5 +108,45 @@ if(isset($_POST['button']) && $_POST['button'] == 'submit'){
 else{
     $_POST['group_name'] = '';
 }
+
+//================================
+//●グループ情報の取得
+//================================
+//DB接続
+$link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+//sqlを設定する
+$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login']; 
+//sqlを実行する
+$result = db_run($link,$sql);
+//フェッチ処理
+$group_data = get_data($result);
+
+//================================
+//●グループ情報の取得
+//================================
+//DB接続
+$link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+//sqlを設定する
+$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login']; 
+//sqlを実行する
+$result = db_run($link,$sql);
+//フェッチ処理
+$group_data = get_data($result);
+ 
+$members = [];
+
+foreach($group_data as $value){
+    //DB接続
+    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+    //sqlを設定する
+    $sql = "SELECT room_member.user_id as 'user_id', user.img_name as 'img_name' FROM user INNER JOIN room_member ON room_member.user_id = user.id WHERE room_member.room_id = ".$value['group_id']; 
+    //sqlを実行する
+    $result = db_run($link,$sql);
+    //フェッチ処理
+    $member = get_data($result);
+    //配列に追加
+    $members[] = $member;
+}
+
 require_once './tpl/'.basename(__FILE__);
 ?>
