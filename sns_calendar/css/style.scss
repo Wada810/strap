@@ -82,7 +82,10 @@ header{
         padding-left: 100px;
         display: flex;
         li{
-            padding: 12px 80px;
+            a{
+                display: block;
+                padding: 12px 80px;
+            }
             transition: background-color 0.3s;
             &:not(.active):hover{
                 background-color: rgb(228, 255, 229);
