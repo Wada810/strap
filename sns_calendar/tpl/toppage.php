@@ -291,10 +291,13 @@
     <?php if(isset($_COOKIE["login"])){require_once "tpl/add_schedule_modal.php";}?>
 
     <?php if(isset($_COOKIE["login"])){?>
-    <script>
-        /* phpで取得したスケジュールの配列をjsにjsonでわたす */
-        let schedules = <?php print json_encode(get_p_s());?>;
-    </script><?php
+        <pre>
+            <?php var_dump(get_p_s()); ?>
+        </pre>
+        <script>
+            /* phpで取得したスケジュールの配列をjsにjsonでわたす */
+            let schedules = <?php print json_encode(get_p_s());?>;
+        </script><?php
     }?>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>

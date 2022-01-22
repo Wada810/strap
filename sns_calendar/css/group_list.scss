@@ -35,9 +35,13 @@
     }
 }
 
-#group_list{
+#group_list_container{
     display: flex;
     flex-wrap: wrap;
+}
+
+#group_list{
+    display: block;
 }
 
 .group_box{
