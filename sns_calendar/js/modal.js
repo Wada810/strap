@@ -33,4 +33,21 @@ $(function(){
     $('#signin_modal_close').click(function(){
         $('#signin_modal_wrapper').fadeOut(300);
     });
+    /////////新規スケジュール////////////
+    //モーダルを表示
+    $('#open_add_schedule_modal').click(function(){
+        $('#add_schedule_modal_wrapper').fadeIn(300).css('display','flex');
+    });
+    //伝播阻止
+    $('#add_schedule_modal').click(function(e){
+        e.stopPropagation();
+    });
+    //背景部分でモーダルを閉じる
+    $('#add_schedule_modal_wrapper').click(function(){
+        $('#add_schedule_modal_wrapper').fadeOut(300);
+    });
+    //閉じるボタンでモーダルを閉じる
+    $('#add_schedule_modal_close').click(function(){
+        $('#add_schedule_modal_wrapper').fadeOut(300);
+    });
 });

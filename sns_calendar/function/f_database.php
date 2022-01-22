@@ -12,7 +12,7 @@ function db_run($link,$sql){
    //接続に失敗した場合
    if(!$link){
       header('location:./tpl/error.php?code=001');
-      exit;      
+      exit;
    }
    //文字設定
    mysqli_set_charset($link,'utf8');
@@ -42,7 +42,7 @@ function db_run_insert($link,$sql){
    //接続に失敗した場合
    if(!$link){
       header('location:./tpl/error.php?code=001');
-      exit;      
+      exit;
    }
    //文字設定
    mysqli_set_charset($link,'utf8');
@@ -167,10 +167,10 @@ function create_select_sql($table,$conditions,$select = ['*']){
       $sql .= ' ';
       foreach($value as $key => $values){
          if($key == 2){
-            $sql .= single_quote($values).' ';  
+            $sql .= single_quote($values).' ';
          }
          else{
-            $sql .= $values.' ';  
+            $sql .= $values.' ';
          }
       }
    }
@@ -182,6 +182,65 @@ function create_select_sql($table,$conditions,$select = ['*']){
 //●SQL文にORDER BY句を付ける
 //-----------------------------------------------
 
+//templateからスケジュールのインスタンスを生成、登録
+function embody_schedule(){
+   //--データベースに接続する
+   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+   $query = "SELECT * FROM personal_schedule_template WHERE user_id = " . $_COOKIE["login"] .
+   " ORDER BY id DESC
+   LIMIT 1;";
+   $data = mysqli_fetch_assoc(mysqli_query($link,$query));
+   var_dump($data);
+   $template_id = $data["id"];
+   $title = $data["title"];
+   $explanation = $data["explanation"];
+   $category = $data["category"];
 
+   $end_repeat = new DateTime($data["end_repeat"]);
+   $start = new DateTime(date("Y-m-d") . " " .  $data["start"]);
+   $end = new DateTime($data["end"]);
+
+   if($_POST["repeat_every"] == "no"){
+      $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("H:i:s") . "', '" . $end->format("H:i:s") . "', '" . $category . "')";
+      $result = mysqli_query($link,$query);
+      //SQLをうまく実行出来なかった
+      if(!$result){
+         mysqli_close($link);
+         header('location:./tpl/error.php?code=002&sql='.$query);
+         exit;
+      }
+   }else{
+      $valid = true;
+      while($valid){
+         $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("Y-m-d H:i:s") . "', '" . $end->format("Y-m-d H:i:s") . "', '" . $category . "')";
+         $result = mysqli_query($link,$query);
+         //SQLをうまく実行出来なかった
+         if(!$result){
+            mysqli_close($link);
+            var_dump($query);
+            header('location:./tpl/error.php?code=002');
+            exit;
+         }
+         $modifier = "+" . $data["repeat_frequency"] . " " . $data["repeat_every"];
+         $start->modify($modifier);
+         $end->modify($modifier);
+         if($end_repeat < $start){
+            $valid = false;
+         }
+      }
+   }
+   return true;
+}
+function get_p_s($start="",$end=""){
+   $start = new DateTime($start);
+   $end = new DateTime($end);
+   $end->modify("+1 weeks");
+   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+   $query = "SELECT * FROM personal_schedule
+   WHERE user_id = " . $_COOKIE["login"] . "
+   AND start BETWEEN '" . $start->format("Y-m-d") . "' AND '" . $end->format("Y-m-d") . "'";
+   $result = db_run($link,$query);
+   return get_data($result);
+}
 
 ?>

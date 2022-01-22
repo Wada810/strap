@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css"><!-- 各ページの固有css -->
     <link rel="stylesheet" href="css/modal.css"><!-- モーダルのcss -->
     <link rel="stylesheet" href="css/form.css"><!-- フォームのcss -->
+    <link rel="stylesheet" href="css/dialog.css"><!-- ダイアログのcss -->
     <!-- Googel Font CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +19,7 @@
     <title>Top Page</title>
 </head>
 <body>
+    <div id="dialog" class="<?php print $dialog_visibility;?>"><?php print $dialog;?><span class="material-icons-outlined" id="dialog_close">close</span></div>
     <main id="contents_wrapper">
         <section id="left_column_contents">
             <?php if(!isset($_COOKIE["login"])){?>
@@ -107,7 +109,7 @@
         <section id="right_column_contents">
             <section>
                 <?php if(isset($_COOKIE["login"])){?>
-                <button class="btn btn-green icon_in" id="add_schedule_btn">Add Schedule<span class="material-icons-outlined">add_box</span></button>
+                <button class="btn btn-green icon_in" id="open_add_schedule_modal">Add Schedule<span class="material-icons-outlined">add_box</span></button>
                 <?php } ?>
                 <!-- カレンダー -->
                 <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
@@ -124,32 +126,12 @@
 
                     <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
                     <div class="day_col">1/17
-                        <div class="schedule" style="top: 500px; height: 90px;">
-                            <div class="title">IH12</div>
-                            <div class="time">12:00~1:30</div>
-                        </div>
-                        <div class="schedule" style="top: 595px; height: 90px;">
-                            <div class="title">IH12</div>
-                            <div class="time">12:00~1:30</div>
-                        </div>
-                        <div class="schedule" style="top: 690px; height: 150px;">
-                            <div class="title">IH12</div>
-                            <div class="time">12:00~1:30</div>
-                        </div>
                     </div>
                     <div class="day_col">1/18
                     </div>
                     <div class="day_col">1/19
-                        <div class="schedule" style="top: 195px; height: 390px;">
-                            <div class="title">IH12</div>
-                            <div class="time">12:00~1:30</div>
-                        </div>
                     </div>
                     <div class="day_col">1/20
-                        <div class="schedule red" style="top: 390px; height: 150px;">
-                            <div class="title">IH12</div>
-                            <div class="time">12:00~1:30</div>
-                        </div>
                     </div>
                     <div class="day_col">1/21
                     </div>
@@ -296,9 +278,19 @@
             <button class="f_submit" name="button" value="signin_submit">ログインする</button>
         </form>
     </div>
+    <!-- 新規スケジュール追加モーダルの読み込み -->
+    <?php if(isset($_COOKIE["login"])){require_once "tpl/add_schedule_modal.php";}?>
+    <script>
+        /* phpで取得したスケジュールの配列をjsにjsonでわたす */
+        let schedules = <?php print json_encode(get_p_s());?>;
+        console.log(schedules);
+    </script>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/img_display.js"></script>
     <script src="./js/key_forcus.js"></script>
+    <script src="./js/add_schedule.js"></script>
+    <script src="./js/dialog.js"></script>
+    <script src="./js/personal_schedule.js"></script>
 </body>
 </html>

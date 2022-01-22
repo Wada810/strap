@@ -64,6 +64,10 @@ body .material-icons-outlined {
   opacity: 0.7;
 }
 
+.center {
+  margin: 0 auto;
+}
+
 .full {
   width: 100%;
 }
@@ -83,6 +87,11 @@ body .material-icons-outlined {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.hr {
+  padding: 20px;
+  width: 100%;
 }
 
 #account .account_box {
@@ -219,7 +228,7 @@ body .material-icons-outlined {
   font-weight: 400;
 }
 
-#add_schedule_btn {
+#open_add_schedule_modal {
   margin-bottom: 40px;
 }
 
@@ -354,4 +363,13 @@ body .material-icons-outlined {
 #sign_box .signin {
   border: 1px solid #54d369;
   color: #54d369;
+}
+
+#add_schedule_modal_wrapper #add_schedule_modal {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none !important;
 }

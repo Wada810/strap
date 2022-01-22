@@ -19,6 +19,29 @@
   margin: 6px auto;
 }
 
+.f_container_opt {
+  width: 100%;
+  padding: 0 100px;
+  display: grid;
+  grid-template-rows: auto 30px;
+  grid-template-columns: 1fr 70%;
+  column-gap: 20px;
+  margin: 6px auto;
+}
+
+.f_container_opt .f_input {
+  width: 100%;
+}
+
+.f_container_opt .f_title {
+  width: 100%;
+  text-align: center;
+}
+
+.f_container_opt .f_input_parts {
+  align-items: start;
+}
+
 .f_required {
   height: 22px;
   width: 55px;
@@ -56,6 +79,10 @@
 
 .f_input:focus {
   background-color: #deffd5;
+}
+
+textarea {
+  height: 100px !important;
 }
 
 .f_explanation {
@@ -171,4 +198,17 @@ input[type="file"] {
 
 .f_submit:hover {
   background-color: #359153;
+}
+
+.submit_box {
+  display: flex;
+  justify-content: center;
+}
+
+.submit_box button:disabled {
+  background-color: #646464 !important;
+}
+
+.submit_box button:disabled:hover {
+  opacity: 1;
 }

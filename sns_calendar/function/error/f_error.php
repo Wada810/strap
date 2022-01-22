@@ -40,7 +40,7 @@ function login_id_check($link,$table_name,$value){
       //初期化
       $login_id = [];
       //sqlを設定する
-      $sql = "select count(*) as 'login_id_count' from " . $table_name . " where login_id = '" . $value . "'"; 
+      $sql = "select count(*) as 'login_id_count' from " . $table_name . " where login_id = '" . $value . "'";
       //sqlを実行する
       $result = db_run($link,$sql);
       //フェッチ処理

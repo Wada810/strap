@@ -3,7 +3,18 @@ require_once './initial_setting.php';
 //モーダルの表示に関する変数
 $login_modal = 'none';
 $signin_modal = 'none';
+$add_schedule_modal = 'none';
 
+//ダイアログがある時は表示する
+$dialog = "";/* 内容 */
+$dialog_visibility = "hidden";/* 表示 */
+if(isset($_SESSION["dialog"])){
+    $dialog = $_SESSION["dialog"];
+    $dialog_visibility = "";
+}
+//セッション消す
+/* $_SESSION = [];
+session_destroy(); */
 if(isset($_COOKIE["login"])){
     //ログアウトボタンが押されたとき
     if(isset($_POST["logout"])){
@@ -12,14 +23,75 @@ if(isset($_COOKIE["login"])){
         header("location: ./toppage.php");
         exit;
     }
+
+
     //現在ログインしているユーザーの情報を取得
     $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
     //sqlを設定する
-    $sql = "select * FROM user WHERE id = " . $_COOKIE["login"];
+    $sql = "SELECT * FROM user WHERE id = " . $_COOKIE["login"];
     //sqlを実行する
     $result = db_run($link,$sql);
     //フェッチ処理
     $user_data = mysqli_fetch_assoc($result);
+
+
+    //現在ログインしているユーザーのスケジュールカテゴリを取得
+    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+    //sqlを設定する
+    $sql = "SELECT DISTINCT category FROM personal_schedule_template WHERE user_id = " . $_COOKIE["login"];
+    //sqlを実行する
+    $result = db_run($link,$sql);
+    //フェッチ処理
+    $schedule_category_list = get_data($result);
+
+    // スケジュール追加ボタンが押されたとき
+    if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
+        //================================
+        //●エラーチェック
+        //================================
+
+        //エラー文を格納する連想配列
+        $error = [];
+
+        //(未入力)
+        $error['title'] = not_entered_check($_POST['title']);
+        $error['start'] = not_entered_check($_POST['start']);
+        $error['end'] = not_entered_check($_POST['end']);
+        if($_POST["repeat_every"] != "no"){
+            $error['end_repeat'] = not_entered_check($_POST['end_repeat']);
+            $today = new DateTime();
+            $end_repeat = new DateTime($_POST['end_repeat']);
+            if($today > $end_repeat){
+                $error["end_repeat"] = DATE_INVALID;
+            }
+        }
+        //日付の妥当性チェック
+        if($_POST["start"] > $_POST["end"]){
+            $error["start"] = TIME_INVALID;
+            $error["end"] = TIME_INVALID;
+        }
+
+        //エラーがない場合
+        if(error_count($error) == 0){
+            //DB接続
+            $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+
+            //クエリを作成
+            $title = escape($link,$_POST["title"]);
+            $explanation = escape($link,$_POST["explanation"]);
+            $sql = "INSERT INTO personal_schedule_template (user_id, title, explanation, start, end, repeat_every, repeat_frequency, end_repeat, category,created_at)
+            VALUES (" . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $_POST["start"] . "', '" . $_POST["end"] . "', '" . $_POST["repeat_every"] . "', '" . $_POST["repeat_frequency"] . "', '" . $_POST["end_repeat"] . "', '" . $_POST["category"] . "','" . date("Y-m-d") . "')";
+
+            $result = db_run($link,$sql);
+            embody_schedule();
+            //ダイアログsession
+            $_SESSION["dialog"] = "スケジュールを追加しました。";
+            header("location: ./toppage.php");
+            exit;
+        }else{
+            $add_schedule_modal = 'display';
+        }
+    }
 }else{
     //////////非ログイン時の登録＆ログイン処理///////////////////////////////////
     if(isset($_POST['button']) && $_POST['button'] == "submit"){
