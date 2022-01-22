@@ -15,23 +15,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- Google Icon CDN  Outlined-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <title>Document</title>
+    <title>Top Page</title>
 </head>
 <body>
     <main id="contents_wrapper">
         <section id="left_column_contents">
+            <?php if(!isset($_COOKIE["login"])){?>
+            <section id="sign_box">
+                <button class="btn full login" id="open_login_modal"><p>会員登録</p></button>
+                <button class="btn full signin" id="open_signin_modal"><p>ログイン</p></button>
+            </section><?php
+            }else{ ?>
+            <!-- アカウント -->
             <section id="account">
                 <div class="account_box">
-                    <img src="" alt="アカウントアイコン">
+                    <img src="img/user/<?php print $user_data["id"] . "/" . $user_data["img_name"];?>" alt="アカウントアイコン">
                     <div class="profs">
                         <div>
-                            <p class="name">沖　美奈子</p>
-                            <p class="id"><span>id:</span>oki_it_1201</p>
+                            <p class="name"><?php print $user_data["user_name"] ?></p>
+                            <p class="id"><span>id:</span><?php print $user_data["login_id"] ?></p>
                         </div>
-                        <p id="logout">ログアウト</p>
+                        <form method="post"><button id="logout" name="logout">ログアウト</button></form>
                     </div>
                 </div>
             </section>
+            <!-- グループ -->
             <section id="groups">
                 <h2>Schedule Group</h2>
                 <div class="gorup_box">
@@ -68,6 +76,7 @@
                 </div>
                 <button class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></button>
             </section>
+            <!-- To do -->
             <section id="todo">
                 <h2>To Do</h2>
                 <div class="task">
@@ -92,10 +101,15 @@
                 </div>
                 <button class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></button>
             </section>
+        <?php } ?>
         </section>
+        <!-- 右側 -->
         <section id="right_column_contents">
             <section>
+                <?php if(isset($_COOKIE["login"])){?>
                 <button class="btn btn-green icon_in" id="add_schedule_btn">Add Schedule<span class="material-icons-outlined">add_box</span></button>
+                <?php } ?>
+                <!-- カレンダー -->
                 <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
@@ -146,7 +160,6 @@
                     <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="hour_bg">
-                        <div class="hour_row top"></div>
                         <div class="hour_row">0:00</div>
                         <div class="hour_row">1:00</div>
                         <div class="hour_row">2:00</div>
@@ -175,12 +188,11 @@
                     </div>
                 </div>
             </section>
-            <?php //会員登録用モーダル表示ボタン ?>
-        <p id="open_login_modal">会員登録</p>
     </main>
     <?php //会員登録用モーダル ?>
     <div id="login_modal_wrapper" class="modal_wrapper <?php echo $login_modal ?>">
         <form id="login_modal" class="f_box modal_box" action="" method="post" enctype="multipart/form-data">
+        <h2>新規 会員登録</h2>
             <?php //閉じる用のアイコンボタン  ?>
             <span class="material-icons-outlined modal_close" id="login_modal_close">cancel</span>
             <?php // 入力欄：「ログインID」 ?>
@@ -254,6 +266,34 @@
                 </div>
             </div>
             <button class="f_submit" name="button" value="submit">会員登録を行う</button>
+        </form>
+    </div>
+    <!-- ログインモーダル -->
+    <div id="signin_modal_wrapper" class="modal_wrapper <?php echo $signin_modal ?>">
+        <form id="signin_modal" class="f_box modal_box" action="" method="post">
+        <h2>ログイン</h2>
+            <?php //閉じる用のアイコンボタン  ?>
+            <span class="material-icons-outlined modal_close" id="signin_modal_close">cancel</span>
+            <?php // 入力欄：「ログインID」 ?>
+            <p class="f_error signin"><?php echo isset($error['signin_error']) ? $error['signin_error'] : ''; ?></p>
+            <div class="f_container">
+                <div class="f_title_parts">
+                    <p class="f_title">ログインID</p>
+                </div>
+                <div class="f_input_parts">
+                    <input class="f_input signin_form" type="text" name="signin_id">
+                </div>
+            </div>
+            <?php // 入力欄：「パスワード」 ?>
+            <div class="f_container">
+                <div class="f_title_parts">
+                    <p class="f_title">パスワード</p>
+                </div>
+                <div class="f_input_parts">
+                    <input class="f_input signin_form" type="text" name="signin_password">
+                </div>
+            </div>
+            <button class="f_submit" name="button" value="signin_submit">ログインする</button>
         </form>
     </div>
     <script src="./js/jquery-3.3.1.min.js"></script>

@@ -27,6 +27,13 @@ body {
   z-index: 50;
 }
 
+.modal_wrapper h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+
 .display {
   display: flex;
 }
@@ -54,4 +61,3 @@ body {
 .modal_close:hover {
   color: #ff4848;
 }
-/*# sourceMappingURL=modal.css.map */

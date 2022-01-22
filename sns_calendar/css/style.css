@@ -332,4 +332,27 @@ body .material-icons-outlined {
   width: 100%;
   margin-left: 20px;
 }
-/*# sourceMappingURL=style.css.map */
+
+#schedule_board .hour_bg .hour_row.top::after {
+  border-bottom: 0px solid rgba(255, 255, 255, 0);
+  width: 0;
+  opacity: 0;
+  display: none;
+}
+
+#sign_box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#sign_box .login {
+  background-color: #54d369;
+  color: #fcfeff;
+}
+
+#sign_box .signin {
+  border: 1px solid #54d369;
+  color: #54d369;
+}
