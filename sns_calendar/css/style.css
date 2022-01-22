@@ -95,6 +95,31 @@ body .material-icons-outlined {
   width: 100%;
 }
 
+header {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+}
+
+header ul {
+  padding-left: 100px;
+  display: flex;
+}
+
+header ul li {
+  padding: 12px 80px;
+  transition: background-color 0.3s;
+}
+
+header ul li:not(.active):hover {
+  background-color: #e4ffe5;
+}
+
+header ul .active {
+  border-bottom: 2px solid #54d369;
+  background-color: #c8ffca;
+}
+
 #account .account_box {
   display: flex;
   justify-content: flex-start;

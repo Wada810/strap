@@ -21,6 +21,12 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="toppage.php">個人スケジュール</a></li>
+            <li><a href="group.php">グループスケジュール</a></li>
+        </ul>
+    </header>
     <main id="contents_wrapper">
         <section id="left_column_contents">
             <section>

@@ -7,7 +7,6 @@ let frame_height = 0;
 let period = 0;
 let day_list = [7,1,2,3,4,5,6];
 let col = $('.day_col');
-console.log(fix);
 let category = {
     "" : 200,
 };

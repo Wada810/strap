@@ -234,11 +234,13 @@ function embody_schedule(){
 function get_p_s($start="",$end=""){
    $start = new DateTime($start);
    $end = new DateTime($end);
-   $end->modify("+1 weeks");
+   $start->modify("Monday this week");
+   $end->modify("Monday next week");
    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
    $query = "SELECT * FROM personal_schedule
    WHERE user_id = " . $_COOKIE["login"] . "
    AND start BETWEEN '" . $start->format("Y-m-d") . "' AND '" . $end->format("Y-m-d") . "'";
+   //var_dump($query);
    $result = db_run($link,$query);
    return get_data($result);
 }

@@ -20,6 +20,12 @@
 </head>
 <body>
     <div id="dialog" class="<?php print $dialog_visibility;?>"><?php print $dialog;?><span class="material-icons-outlined" id="dialog_close">close</span></div>
+    <header>
+        <ul>
+            <li class="active"><a href="toppage.php">個人スケジュール</a></li>
+            <li><a href="group.php">グループスケジュール</a></li>
+        </ul>
+    </header>
     <main id="contents_wrapper">
         <section id="left_column_contents">
             <?php if(!isset($_COOKIE["login"])){?>
@@ -288,7 +294,6 @@
     <script>
         /* phpで取得したスケジュールの配列をjsにjsonでわたす */
         let schedules = <?php print json_encode(get_p_s());?>;
-        console.log(schedules);
     </script><?php
     }?>
     <script src="./js/jquery-3.3.1.min.js"></script>

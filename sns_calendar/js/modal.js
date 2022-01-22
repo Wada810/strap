@@ -1,7 +1,6 @@
 $(function(){
     /////////会員登録////////////
     //モーダルを表示
-        console.log("a");
     $('#open_login_modal').click(function(){
         $('#login_modal_wrapper').fadeIn(300).css('display','flex');
     });
