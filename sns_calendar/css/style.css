@@ -124,6 +124,11 @@ header ul .active {
   background-color: #c8ffca;
 }
 
+#account h2 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
 #account .account_box {
   display: flex;
   justify-content: flex-start;
@@ -146,7 +151,7 @@ header ul .active {
 
 #account .account_box .profs .name {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 #account .account_box .profs .id span {

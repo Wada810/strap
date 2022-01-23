@@ -1,3 +1,8 @@
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  }
 //スケジュールのコマを生成する
 let fix = $('.hour_row').height();
 let board = $('.hour_bg');
@@ -7,10 +12,10 @@ let frame_height = 0;
 let period = 0;
 let day_list = [7,1,2,3,4,5,6];
 let col = $('.day_col');
-let category = {
-    "" : 200,
-};
 let hue = 200;
+let category = {
+    "" : hue,
+};
 let j = 0;
 for(let i = 0; i < schedules.length; i ++){
     if(schedules[i]["category"] in category){
@@ -40,5 +45,5 @@ for(i = 0; i < schedules.length; i ++){
     + frame_height + 'px;"><div class="title">' + schedules[i]["title"] + '</div><div class="time">'
     + start.getHours().toString().padStart(2, "0") + ':' + start.getMinutes().toString().padStart(2, "0")
     + '~' + end.getHours().toString().padStart(2, "0") + ':' + end.getMinutes().toString().padStart(2, "0") + '</div></div>');
-    //$("#month").append('<div class="schedule">a</div>');
+
 }

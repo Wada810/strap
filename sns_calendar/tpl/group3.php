@@ -63,126 +63,13 @@
                 } ?>
                 <a href="./group_list.php" class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></a>
             </section>
-            <!-- <section id="group_chat">
-                <h2>Group Chat</h2>
-                <div class="chat_box">
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>おつー。<br>
-                            そろそろネタ決めしたいよね？<br>
-                            どっか教室借りてやらない？</p>
-                            <p>明日とかどう？</p>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>いいね！やりましょう</p>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>スケジュールリクエスト<br>
-                                ・タイトル<br>
-                                「第一回ネタ会議」<br>
-                                ・対象期間<br>
-                                「2022/01/03~2022/01/10」<br>
-                                ・説明<br>
-                                「そろそろ、ネタ決めしたいのですが、全員対面で会える日決めませんか？」
-                                </p>
-                        </div>
-                    </div>
-                    <div class="chat you">
-                        <div class="user">
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <p>お疲れ。<br>
-                                リクエスト確認しました。<br>
-                                リマインド作成しておきます。</p>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>おつー。<br>
-                            そろそろネタ決めしたいよね？<br>
-                            どっか教室借りてやらない？</p>
-                            <p>明日とかどう？</p>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>いいね！やりましょう</p>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="user">
-                            <p class="img"><img src="" alt="icon"></p>
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <div class="user_name">ユーザー名</div>
-                            <p>スケジュールリクエスト<br>
-                                ・タイトル<br>
-                                「第一回ネタ会議」<br>
-                                ・対象期間<br>
-                                「2022/01/03~2022/01/10」<br>
-                                ・説明<br>
-                                「そろそろ、ネタ決めしたいのですが、全員対面で会える日決めませんか？」
-                                </p>
-                        </div>
-                    </div>
-                    <div class="chat you">
-                        <div class="user">
-                            <p class="time">11:30</p>
-                        </div>
-                        <div class="text">
-                            <p>お疲れ。<br>
-                                リクエスト確認しました。<br>
-                                リマインド作成しておきます。</p>
-                        </div>
-                    </div>
-
-                    <div class="send_chat">
-                        <textarea name="chat" id="" cols="30" rows="2"></textarea>
-                        <div class="tools">
-                            <button><span class="material-icons-outlined">send</span></button>
-                            <button class="btn_grey"><span class="material-icons-outlined">event</span></button>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
         </section>
         <section id="right_column_contents">
             <section>
                 <div class="top_navis">
-                    <button class="active"><a href="group.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">person</span></a></button>
+                    <button><a href="group.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">person</span></a></button>
                     <button><a href="group2.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">groups</span></a></button>
-                    <button><a href="group3.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">info</span></a></button>
+                    <button class="active"><a href="group3.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">info</span></a></button>
                 </div>
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
@@ -296,7 +183,7 @@
                             <option value="days">毎日</option>
                             <option value="weeks">毎週</option>
                             <option value="months">毎月</option>
-                            <option value="years">毎年</option>
+                            <option value="yeas">毎年</option>
                         </select>
                     </div>
                     <div class="f_discription_parts">
@@ -347,7 +234,6 @@
                     <div class="f_discription_parts">
                     </div>
                 </div>
-                <input type="hidden" name="room_id" value="<?php echo $_GET['room_id']; ?>">
                 <div class="submit_box"><button class="btn btn-green" name="button" value="add_schedule">ブロックを追加する</button></div>
         </form>
     </div>

@@ -19,11 +19,12 @@
     <title>Top Page</title>
 </head>
 <body>
+    <form method="get" id="form"></form>
     <div id="dialog" class="<?php print $dialog_visibility;?>"><?php print $dialog;?><span class="material-icons-outlined" id="dialog_close">close</span></div>
     <header>
         <ul>
             <li class="active"><a href="toppage.php">個人スケジュール</a></li>
-            <li><a href="group.php">グループスケジュール</a></li>
+            <!-- <li><a href="group.php">グループスケジュール</a></li> -->
         </ul>
     </header>
     <main id="contents_wrapper">
@@ -50,14 +51,14 @@
             <!-- グループ -->
             <section id="groups">
                 <h2>Schedule Group</h2>
-                <div class="gorup_box">
-                    <img src="" alt="グループアイコン">
-                    <div class="box">
-                        <p class="group_name">IH開発</p>
-                        <p class="leader"><span>schedule leader:</span>矢野 昭介</p>
-                        <p class="comment"><span>(今日)</span>Git勉強会&意見交換の日程について</p>
-                    </div>
-                </div>
+                <?php foreach($group_data as $val){?>
+                    <a href="group.php?room_id=<?php print $val["group_id"] ?>" class="gorup_box">
+                        <img src="./img/group/<?php echo $val['group_id']; ?>/<?php echo $val['icon_img']; ?>" alt="グループアイコン">
+                        <div class="box">
+                            <p class="group_name"><?php print $val["group_name"] ?></p>
+                        </div>
+                    </a><?php
+                } ?><!--
                 <div class="gorup_box">
                     <img src="" alt="グループアイコン">
                     <div class="box">
@@ -81,11 +82,11 @@
                         <p class="leader"><span>schedule leader:</span>Canp運営_上野</p>
                         <p class="comment"><span>(2/12)</span>【新年１発目】SNSを盛り上げるWeb...</p>
                     </div>
-                </div>
+                </div> -->
                 <a href="./group_list.php" class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></a>
             </section>
             <!-- To do -->
-            <section id="todo">
+            <!-- <section id="todo">
                 <h2>To Do</h2>
                 <div class="task">
                     <p class="send_from">ハッカソン By 運営_上野</p>
@@ -108,7 +109,7 @@
                     <p class="comment">「第二回ネタ会議」がまもなくです。</p>
                 </div>
                 <button class="btn btn-green icon_in full">Show more<span class="material-icons-outlined">slideshow</span></button>
-            </section>
+            </section> -->
         <?php } ?>
         </section>
         <!-- 右側 -->
@@ -118,7 +119,7 @@
                 <button class="btn btn-green icon_in" id="open_add_schedule_modal">Add Schedule<span class="material-icons-outlined">add_box</span></button>
                 <?php } ?>
                 <!-- カレンダー -->
-                <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
+                <!-- <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div> -->
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
                     <div class="day_fixed">月</div>
@@ -130,15 +131,13 @@
                     <div class="day_fixed">日</div>
                     <div class="day_fixed"></div>
 
-                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
-                    <div class="day_col">1/17</div>
-                    <div class="day_col">1/18</div>
-                    <div class="day_col">1/19</div>
-                    <div class="day_col">1/20</div>
-                    <div class="day_col">1/21</div>
-                    <div class="day_col">1/22</div>
-                    <div class="day_col">1/23</div>
-                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+                    <div class="day_col spacer"><button id="week_back" form="form" name="week_change" value="<?php print $week_back ?>"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <?php
+                    foreach(get_c_d($modf) as $val){?>
+                        <div class="day_col"><?php print $val;?></div><?php
+                    }
+                    ?>
+                    <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="frame spacer"></div>
                     <div class="frame"></div>
@@ -291,13 +290,11 @@
     <?php if(isset($_COOKIE["login"])){require_once "tpl/add_schedule_modal.php";}?>
 
     <?php if(isset($_COOKIE["login"])){?>
-        <pre>
-            <?php var_dump(get_p_s()); ?>
-        </pre>
-        <script>
-            /* phpで取得したスケジュールの配列をjsにjsonでわたす */
-            let schedules = <?php print json_encode(get_p_s());?>;
-        </script><?php
+    <script>
+        /* phpで取得したスケジュールの配列をjsにjsonでわたす */
+        let schedules = <?php print json_encode(get_p_s($modf));?>;
+        console.log(schedules);
+    </script><?php
     }?>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>

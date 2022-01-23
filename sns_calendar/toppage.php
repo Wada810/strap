@@ -12,9 +12,15 @@ if(isset($_SESSION["dialog"])){
     $dialog = $_SESSION["dialog"];
     $dialog_visibility = "";
 }
-//セッション消す
-/* $_SESSION = [];
-session_destroy(); */
+//カレンダーのボタン処理
+    $week_back = -1;
+    $week_next = 1;
+    $modf = "";
+if(isset($_GET["week_change"])){
+    $week_back = $_GET["week_change"] - 1;
+    $week_next = $_GET["week_change"] + 1;
+    $modf = $_GET["week_change"];
+}
 if(isset($_COOKIE["login"])){
     //ログアウトボタンが押されたとき
     if(isset($_POST["logout"])){
@@ -23,7 +29,6 @@ if(isset($_COOKIE["login"])){
         header("location: ./toppage.php");
         exit;
     }
-
 
     //現在ログインしているユーザーの情報を取得
     $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
@@ -34,6 +39,20 @@ if(isset($_COOKIE["login"])){
     //フェッチ処理
     $user_data = mysqli_fetch_assoc($result);
 
+    //================================
+    //●グループ情報の取得
+    //================================
+    //DB接続
+    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+    //sqlを設定する
+    $sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login'] . " LIMIT 4";
+    //sqlを実行する
+    $result = db_run($link,$sql);
+    //フェッチ処理
+    $group_data = get_data($result);
+    if(!$group_data){
+        $group_data = [];
+    }
 
     //現在ログインしているユーザーのスケジュールカテゴリを取得
     $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);

@@ -1,9 +1,8 @@
-<?php 
+<?php
 require_once './initial_setting.php';
 
 //モーダルの表示に関する変数
 $create_group_modal = 'none';
-
 if(isset($_POST['button']) && $_POST['button'] == 'submit'){
     //================================
     //●エラーチェック
@@ -37,7 +36,7 @@ if(isset($_POST['button']) && $_POST['button'] == 'submit'){
         //DB接続
         $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
         //sqlを設定する
-        $sql = "select Max(id) + 1 as 'id' from room"; 
+        $sql = "select Max(id) + 1 as 'id' from room";
         //sqlを実行する
         $result = db_run($link,$sql);
         //フェッチ処理
@@ -98,7 +97,7 @@ if(isset($_POST['button']) && $_POST['button'] == 'submit'){
 
         header('location:./group_list.php');
         exit;
-        
+
     }
     else{
         //エラーがある場合
@@ -115,7 +114,7 @@ else{
 //DB接続
 $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
 //sqlを設定する
-$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login']; 
+$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login'];
 //sqlを実行する
 $result = db_run($link,$sql);
 //フェッチ処理
@@ -127,19 +126,22 @@ $group_data = get_data($result);
 //DB接続
 $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
 //sqlを設定する
-$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login']; 
+$sql = "SELECT room.name as 'group_name' , room.img_name as 'icon_img' , room.id as 'group_id' FROM room_member INNER JOIN room ON room_member.room_id = room.id WHERE room_member.user_id = ".$_COOKIE['login'];
 //sqlを実行する
 $result = db_run($link,$sql);
 //フェッチ処理
 $group_data = get_data($result);
- 
+if(!$group_data){
+    $group_data = [];
+}
+
 $members = [];
 
 foreach($group_data as $value){
     //DB接続
     $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
     //sqlを設定する
-    $sql = "SELECT room_member.user_id as 'user_id', user.img_name as 'img_name' FROM user INNER JOIN room_member ON room_member.user_id = user.id WHERE room_member.room_id = ".$value['group_id']; 
+    $sql = "SELECT room_member.user_id as 'user_id', user.img_name as 'img_name' FROM user INNER JOIN room_member ON room_member.user_id = user.id WHERE room_member.room_id = ".$value['group_id'];
     //sqlを実行する
     $result = db_run($link,$sql);
     //フェッチ処理
