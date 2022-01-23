@@ -12,7 +12,7 @@ let span_list = {
     1: "circle",
     2: "change_history",
     3: "question_mark",
-    undefined: "question_mark",
+    "": "question_mark",
 }
 let col = $('.day_col');
 for(i = 0; i < schedules.length; i ++){
