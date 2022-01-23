@@ -174,7 +174,7 @@ if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
         $personal_block = [];
         foreach($member as $value){
             for($i = 0; $i + $block_id <= $id; $i++){
-                $personal_block[] = [$value['user_id'],$data[$i][0],$i + $block_id,$data[$i][3],$data[$i][4]];
+                $personal_block[] = [$value['user_id'],$data[$i][0],$i + $block_id,$data[$i][2],$data[$i][3]];
             }
         }
         foreach($personal_block as $key => $value){
