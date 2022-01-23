@@ -157,10 +157,10 @@ if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
         //DB接続
         $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
         //クエリを作成
-        $column = ['group_id','block_template_id','title','start','end'];
+        $column = ['group_id','block_template_id','start','end'];
         $data = [];
         foreach($date_list as $value){
-            $data[] = [$_GET['room_id'],$id,$title,$value . ' ' . $_POST['start'],$value . ' ' . $_POST['end']];
+            $data[] = [$_GET['room_id'],$id,$value . ' ' . $_POST['start'],$value . ' ' . $_POST['end']];
         }
         $sql = create_insert_sql('block',$column,$data);
         //DBを実行

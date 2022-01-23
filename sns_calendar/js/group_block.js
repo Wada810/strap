@@ -37,7 +37,8 @@ $(function(){
     /////////会員登録////////////
     //モーダルを表示
     $('.block_icon').click(function(){
-        console.log('aaa');
+        console.log($(this).attr('id'));
+        $([])
         $('#block_modal_wrapper').fadeIn(300).css('display','flex');
     });
     //伝播阻止
