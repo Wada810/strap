@@ -273,6 +273,28 @@ header{
                 font-size: 1rem;
             }
         }
+        &.block{
+            .schedule{
+                border: 1px solid rgb(191, 191, 191);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #d7eeffc9;
+                background-color: #ffebebc9;
+                background-color: #e4e4e4c1;
+                transition: box-shadow 0.3s;
+                span{
+                    width: 100%;
+                    display: block;
+                    color: #3daafd;
+                    color: #fd3d60;
+                    color: #6b6b6b;
+                }
+                &:hover{
+                    box-shadow:$shadow_2dp;
+                }
+            }
+        }
     }
     .day_col{
         display: flex;

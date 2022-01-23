@@ -292,4 +292,24 @@ function change_single_state($block_id){
    db_run($link,$query);
    return true;
 }
+function get_g_b($modifier=""){
+   if($modifier != ""){
+      $mod = new DateTime();
+      $mod->modify("+" . $modifier . " weeks");
+      $modifier = $mod->format("Y-m-d");
+   }
+   $start = new DateTime($modifier);
+   $end = new DateTime($modifier);
+   $start->modify("Monday this week");
+   $start->setTime(0,0,0);
+   $end->modify("Monday next week");
+   $end->setTime(0,0,0);
+   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+   $query = "SELECT * FROM block
+    WHERE user_id = " . $_COOKIE["login"] . "
+   AND start BETWEEN '" . $start->format("Y-m-d H:i:s") . "' AND '" . $end->format("Y-m-d H:i:s") . "'";
+   //var_dump($query);
+   $result = db_run($link,$query);
+   return get_data($result);
+}
 ?>

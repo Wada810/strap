@@ -25,6 +25,7 @@
             <li class="active"><a>グループスケジュール</a></li>
         </ul>
     </header>
+    <form method="get" id="form"><input type="hidden" name="room_id" value="<?php print $_GET["room_id"] ?>"></form>
     <main id="contents_wrapper">
         <section id="left_column_contents">
             <section id="account">
@@ -196,22 +197,39 @@
                     <div class="day_fixed">日</div>
                     <div class="day_fixed"></div>
 
-                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
-                    <div class="day_col">1/17
+                    <div class="day_col spacer"><button id="week_back" form="form" name="week_change" value="<?php print $week_back ?>"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <?php
+                    foreach(get_c_d($modf) as $val){?>
+                        <div class="day_col"><?php print $val;?></div><?php
+                    }
+                    ?>
+                    <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+
+                    <div class="frame spacer"></div>
+                    <div class="frame block ">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">circle</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/18
+                    <div class="frame block">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">clear</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/19
+                    <div class="frame block">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">change_history</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/20
+                    <div class="frame block">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">question_mark</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/21
-                    </div>
-                    <div class="day_col">1/22
-                    </div>
-                    <div class="day_col">1/23
-                    </div>
-                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame spacer"></div>
 
                     <div class="hour_bg">
                         <div class="hour_row">0:00</div>
@@ -352,10 +370,18 @@
                 <div class="submit_box"><button class="btn btn-green" name="button" value="add_schedule">ブロックを追加する</button></div>
         </form>
     </div>
+    <?php if(isset($_COOKIE["login"])){?>
+    <script>
+        /* phpで取得したスケジュールの配列をjsにjsonでわたす */
+        let schedules = <?php //print json_encode(get_g_b($modf));?>;
+        console.log(schedules);
+    </script><?php
+    }?>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/key_forcus.js"></script>
     <script src="./js/add_schedule.js"></script>
     <script src="./js/dialog.js"></script>
+    <script src="./js/personal_block.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  background-color: #fcfeff;
+  background-color: #f8f8f8;
 }
 
 #group_chat .chat_box {
@@ -128,7 +128,7 @@
 }
 
 #group_chat .chat_box .send_chat .tools span {
-  color: #fcfeff;
+  color: #f8f8f8;
   background-color: #54d369;
   border-radius: 4px;
   padding: 4px;
@@ -169,7 +169,7 @@
 
 .top_navis button.active span {
   color: #0c0c0c;
-  background-color: #fcfeff;
+  background-color: #f8f8f8;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -182,7 +182,7 @@
   white-space: nowrap;
   background-color: #272727;
   display: block;
-  color: #fcfeff;
+  color: #f8f8f8;
   padding: 4px 8px;
   position: absolute;
   bottom: 0;
