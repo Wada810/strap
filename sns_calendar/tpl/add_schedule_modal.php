@@ -65,7 +65,7 @@
                         <option value="days">毎日</option>
                         <option value="weeks">毎週</option>
                         <option value="months">毎月</option>
-                        <option value="yeas">毎年</option>
+                        <option value="years">毎年</option>
                     </select>
                 </div>
                 <div class="f_discription_parts">
