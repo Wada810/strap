@@ -333,22 +333,48 @@ header ul .active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d7eeffc9;
-  background-color: #ffebebc9;
-  background-color: #e4e4e4c1;
   transition: box-shadow 0.3s;
 }
 
 #schedule_board .frame.block .schedule span {
   width: 100%;
   display: block;
-  color: #3daafd;
-  color: #fd3d60;
-  color: #6b6b6b;
 }
 
 #schedule_board .frame.block .schedule:hover {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+#schedule_board .frame.block .c0 {
+  background-color: #ffebebc9;
+}
+
+#schedule_board .frame.block .c0 span {
+  color: #fd3d60;
+}
+
+#schedule_board .frame.block .c1 {
+  background-color: #d7eeffc9;
+}
+
+#schedule_board .frame.block .c1 span {
+  color: #3daafd;
+}
+
+#schedule_board .frame.block .c2 {
+  background-color: #e4e4e4c1;
+}
+
+#schedule_board .frame.block .c2 span {
+  color: #6b6b6b;
+}
+
+#schedule_board .frame.block .c3 {
+  background-color: #e4e4e4c1;
+}
+
+#schedule_board .frame.block .c3 span {
+  color: #6b6b6b;
 }
 
 #schedule_board .day_col {

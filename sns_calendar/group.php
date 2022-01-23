@@ -190,7 +190,7 @@ if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
                 $personal_block[$key][5] = 0;
             }
             else{
-                $personal_block[$key][5] = 3;
+                $personal_block[$key][5] = 1;
             }
         }
         //DB接続
@@ -209,6 +209,8 @@ if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
     }else{
         $add_schedule_modal = 'display';
     }
+    header("location: group.php?room_id=" . $_GET["room_id"]);
+    exit;
 }
 
 require_once './tpl/'.basename(__FILE__);
