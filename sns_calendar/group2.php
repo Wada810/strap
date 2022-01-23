@@ -98,6 +98,20 @@ if(!$group_data){
     $group_data = [];
 }
 
+if(isset($_POST['button']) && $_POST['button'] == "block_submit"){
+    //================================
+    //●イベント情報
+    //================================
+    //現在ログインしているユーザーの情報を取得
+    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+    //sqlを設定する
+    $sql = "UPDATE block SET title = '" . $_POST['title'] . "' WHERE id = " . $_POST['block_id'];
+    //sqlを実行する
+    $result = db_run($link,$sql);
+}
 
 require_once './tpl/'.basename(__FILE__);
 ?>
+
+
+
