@@ -244,7 +244,7 @@
         <form id="block_modal" class="f_box modal_box" action="" method="post">
             <h2>スケジュールを確定させる</h2>
             <h2 class="f_big_title">イベント名</h2>
-            <p><input class="f_input login_form f_inputsize_creategroup" type="text" name="group_name" value=""></p>
+            <p><input class="f_input login_form f_inputsize_creategroup" type="text" name="title" value=""></p>
             <input type="hidden" name="block_id" value="">
             <p class="f_error gl_unique_parts2"><?php echo isset($error['group_name']) ? $error['group_name'] : ''; ?></p>
             <br>

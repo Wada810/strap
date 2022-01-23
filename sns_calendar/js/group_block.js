@@ -44,6 +44,7 @@ $(function(){
     $('.block_icon').click(function(){
         console.log($(this).attr('id'));
         $(input[""])
+        $("input[name='block_id']").val($(this).attr('id'));
         $('#block_modal_wrapper').fadeIn(300).css('display','flex');
     });
     //伝播阻止
