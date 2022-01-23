@@ -91,17 +91,17 @@
                     <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="frame spacer"></div>
-                    <div class="frame block ">
+                    <div class="frame block schedule_block">
                         <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">circle</span>
+                            <span class="material-icons-outlined block_icon" id="82">circle</span>
                         </div>
                     </div>
-                    <div class="frame block">
+                    <div class="frame block schedule_block">
                         <div class="schedule" style="top: 400px; height: 120px;">
                             <span class="material-icons-outlined block_icon">clear</span>
                         </div>
                     </div>
-                    <div class="frame block">
+                    <div class="frame block schedule_block">
                         <div class="schedule" style="top: 400px; height: 120px;">
                             <span class="material-icons-outlined block_icon">change_history</span>
                         </div></div>
@@ -253,7 +253,12 @@
     <div id="block_modal_wrapper" class="modal_wrapper <?php echo $block_modal ?>">
         <form id="block_modal" class="f_box modal_box" action="" method="post">
             <h2>スケジュールを確定させる</h2>
-            <h3>2022/01/12 ~ 2022/01/23</h3>
+            <h2 class="f_big_title">イベント名</h2>
+            <p><input class="f_input login_form f_inputsize_creategroup" type="text" name="group_name" value=""></p>
+            <input type="hidden" name="block_id" value="">
+            <p class="f_error gl_unique_parts2"><?php echo isset($error['group_name']) ? $error['group_name'] : ''; ?></p>
+            <br>
+            <br>
             <button class="f_submit" name="button" value="block_submit">確定する</button>
         </form>
     </div>
