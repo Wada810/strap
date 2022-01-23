@@ -153,13 +153,52 @@ if(isset($_POST['button']) && $_POST['button'] == "add_schedule"){
         }
         $sql = create_insert_sql('block',$column,$data);
         //DBを実行
-        $id = db_run_insert($link,$sql);
+        $id = 1 + db_run_insert($link,$sql);
+        $count = count($data);
+        $block_id = $id - $count + 1;
 
+        //=================================
+        //●テンプレートからブロックを追加
+        //=================================
+        $personal_block = [];
+        foreach($member as $value){
+            for($i = 0; $i + $block_id <= $id; $i++){
+                $personal_block[] = [$value['user_id'],$data[$i][0],$i + $block_id,$data[$i][3],$data[$i][4]];
+            }
+        }
+        foreach($personal_block as $key => $value){
+            //DB接続
+            $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+            //sqlを設定する
+            $sql = "SELECT COUNT(*) AS 'result' FROM personal_schedule WHERE user_id = 13 AND NOT ((start < '" . $value[3] . "' AND end < '" . $value[3] . "') OR (start > '" . $value[4] . "' AND end > '" . $value[4] . "'))";
+            //sqlを実行する
+            $result = db_run($link,$sql);
+            //フェッチ処理
+            $count = get_data($result);
+            if($count[0]['result'] > 0){
+                $personal_block[$key][5] = 0;
+            }
+            else{
+                $personal_block[$key][5] = 3;
+            }
+        }
+        //DB接続
+        $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+        //クエリを作成
+        $column = ['user_id','group_id','block_id','start','end','state'];
+        $sql = create_insert_sql('personal_block',$column,$personal_block);
+        //DBを実行
+        $id2 = db_run_insert($link,$sql);
+        //=================================
+        //●集計
+        //=================================
+        for($i = 0; $i + $block_id <= $id; $i++){
+            change_single_state($block_id + $i);
+        }
     }else{
         $add_schedule_modal = 'display';
     }
 }
-
 
 require_once './tpl/'.basename(__FILE__);
 ?>

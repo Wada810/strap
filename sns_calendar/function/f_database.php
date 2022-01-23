@@ -278,7 +278,7 @@ function change_single_state($block_id){
       }
    }
    $availability = $availability / count($list) * 100;
-   $query = "UPDATTE block SET state = ";
+   $query = "UPDATE `block` SET `state` = ";
    if($availability >= 100){
       $query .= "1";
    }elseif($availability <= 50){
