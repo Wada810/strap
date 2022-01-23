@@ -264,4 +264,32 @@ function get_c_d($modifier=""){
    }
    return $list;
 }
+//block_idの最新のstateを確認し変更
+function change_single_state($block_id){
+   //--データベースに接続する
+   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+   $query = "SELECT * FROM personal_block WHERE block_id = " . $block_id;
+   $result = db_run($link,$query);
+   $list = get_data($result);
+   $availability = 0;
+   foreach($list as $val){
+      if($val["state"] == 1){
+         $availability ++;
+      }
+   }
+   $availability = $availability / count($list) * 100;
+   $query = "UPDATTE block SET state = ";
+   if($availability >= 100){
+      $query .= "1";
+   }elseif($availability <= 50){
+      $query .= "0";
+   }else{
+      $query .= "2";
+   }
+   $query .= " WHERE id = " . $block_id;
+   //--データベースに接続する
+   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+   db_run($link,$query);
+   return true;
+}
 ?>
