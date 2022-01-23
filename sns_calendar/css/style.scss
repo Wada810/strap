@@ -279,19 +279,37 @@ header{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #d7eeffc9;
-                background-color: #ffebebc9;
-                background-color: #e4e4e4c1;
                 transition: box-shadow 0.3s;
                 span{
                     width: 100%;
                     display: block;
-                    color: #3daafd;
-                    color: #fd3d60;
-                    color: #6b6b6b;
                 }
                 &:hover{
                     box-shadow:$shadow_2dp;
+                }
+            }
+            .c0{
+                background-color: #ffebebc9;
+                span{
+                    color: #fd3d60;
+                }
+            }
+            .c1{
+                background-color: #d7eeffc9;
+                span{
+                    color: #3daafd;
+                }
+            }
+            .c2{
+                background-color: #e4e4e4c1;
+                span{
+                    color: #6b6b6b;
+                }
+            }
+            .c3{
+                background-color: #e4e4e4c1;
+                span{
+                    color: #6b6b6b;
                 }
             }
         }

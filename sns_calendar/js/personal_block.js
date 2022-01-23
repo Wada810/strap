@@ -1,4 +1,4 @@
-/* //スケジュールのコマを生成する
+//スケジュールのコマを生成する
 let fix = $('.hour_row').height();
 let board = $('.hour_bg');
 let board_height = board.height() - fix;
@@ -6,6 +6,7 @@ let min_height = board_height / (24 * 60);
 let frame_height = 0;
 let period = 0;
 let day_list = [7,1,2,3,4,5,6];
+let span_list = ["clear","circle","change_history","question_mark"];
 let col = $('.day_col');
 for(i = 0; i < schedules.length; i ++){
     let start = new Date(schedules[i]["start"]);
@@ -23,12 +24,8 @@ for(i = 0; i < schedules.length; i ++){
     let where = start.getDay();
     where = day_list[where];
 
-    $('.frame').eq(where).append('<div class="schedule" style="top: ' + distance + 'px; background-color: #fff; height : '
-    + frame_height + 'px;"><div class="title">' + schedules[i]["title"] + '</div><div class="time">'
-    + start.getHours().toString().padStart(2, "0") + ':' + start.getMinutes().toString().padStart(2, "0")
-    + '~' + end.getHours().toString().padStart(2, "0") + ':' + end.getMinutes().toString().padStart(2, "0") + '</div></div>');
-
-} */
+    $('.frame').eq(where).append('<div class="schedule c' + schedules[i]["state"] + '" style="top: ' + distance + 'px; height: ' + frame_height + 'px;"><span class="material-icons-outlined block_icon">' + span_list[schedules[i]["state"]] + '</span></div>');
+}
 let icon_w = $('.block_icon').width();
 $('.block_icon').css({
     "font-size": icon_w + "px",

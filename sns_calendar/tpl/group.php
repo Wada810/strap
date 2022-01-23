@@ -206,26 +206,10 @@
                     <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="frame spacer"></div>
-                    <div class="frame block ">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">circle</span>
-                        </div>
-                    </div>
-                    <div class="frame block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">clear</span>
-                        </div>
-                    </div>
-                    <div class="frame block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">change_history</span>
-                        </div>
-                    </div>
-                    <div class="frame block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">question_mark</span>
-                        </div>
-                    </div>
+                    <div class="frame block "></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
                     <div class="frame block"></div>
                     <div class="frame block"></div>
                     <div class="frame block"></div>
@@ -348,24 +332,6 @@
                     </div>
                 </div>
                 <div class="hr"></div>
-                <!--入力欄：終了日時の設定-->
-                <div class="f_container_opt">
-                    <div class="f_title_parts">
-                        <p class="f_title">スケジュールカテゴリ</p>
-                    </div>
-                    <div class="f_input_parts">
-                        <input class="f_input" type="text" name="category" value="" list="schedule_category">
-                        <datalist id="schedule_category">
-                            <?php
-                            foreach($schedule_category_list as $val){?>
-                                <option value="<?php print $val["category"]?>"></option><?php
-                            }
-                            ?>
-                        </datalist>
-                    </div>
-                    <div class="f_discription_parts">
-                    </div>
-                </div>
                 <input type="hidden" name="room_id" value="<?php echo $_GET['room_id']; ?>">
                 <div class="submit_box"><button class="btn btn-green" name="button" value="add_schedule">ブロックを追加する</button></div>
         </form>
@@ -373,7 +339,7 @@
     <?php if(isset($_COOKIE["login"])){?>
     <script>
         /* phpで取得したスケジュールの配列をjsにjsonでわたす */
-        let schedules = <?php //print json_encode(get_g_b($modf));?>;
+        let schedules = <?php print json_encode(get_p_b($modf));?>;
         console.log(schedules);
     </script><?php
     }?>
