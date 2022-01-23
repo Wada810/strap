@@ -201,7 +201,7 @@ function embody_schedule(){
    $end = new DateTime($data["end"]);
 
    if($_POST["repeat_every"] == "no"){
-      $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("Y-m-d H:i:s") . "', '" . $end->format("Y-m-d H:i:s") . "', '" . $category . "')";
+      $query = "INSERT INTO personal_schedule (template_id, user_id, title, explanation, start, end, category) VALUES (" . $template_id . ", " . $_COOKIE["login"] . ", '" . $title . "', '" . $explanation . "', '" . $start->format("H:i:s") . "', '" . $end->format("H:i:s") . "', '" . $category . "')";
       $result = mysqli_query($link,$query);
       //SQLをうまく実行出来なかった
       if(!$result){
@@ -231,14 +231,11 @@ function embody_schedule(){
    }
    return true;
 }
-function get_p_s($modifier=""){
-   if($modifier != ""){
-      $mod = new DateTime();
-      $mod->modify("+" . $modifier . " weeks");
-      $modifier = $mod->format("Y-m-d");
-   }
-   $start = new DateTime($modifier);
-   $end = new DateTime($modifier);
+
+
+function get_p_s($start="",$end=""){
+   $start = new DateTime($start);
+   $end = new DateTime($end);
    $start->modify("Monday this week");
    $end->modify("Monday next week");
    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
@@ -249,47 +246,5 @@ function get_p_s($modifier=""){
    $result = db_run($link,$query);
    return get_data($result);
 }
-function get_c_d($modifier=""){
-   if($modifier != ""){
-      $mod = new DateTime();
-      $mod->modify("+" . $modifier . " weeks");
-      $modifier = $mod->format("Y-m-d");
-   }
-   $list = [];
-   $day = new DateTime($modifier);
-   $day->modify("Monday this week");
-   for($i = 0; $i < 7; $i ++){
-      $list[] = $day->format("m/d");
-      $day->modify("+1 days");
-   }
-   return $list;
-}
-//block_idの最新のstateを確認し変更
-function change_single_state($block_id){
-   //--データベースに接続する
-   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
-   $query = "SELECT * FROM personal_block WHERE block_id = " . $block_id;
-   $result = db_run($link,$query);
-   $list = get_data($result);
-   $availability = 0;
-   foreach($list as $val){
-      if($val["state"] == 1){
-         $availability ++;
-      }
-   }
-   $availability = $availability / count($list) * 100;
-   $query = "UPDATE `block` SET `state` = ";
-   if($availability >= 100){
-      $query .= "1";
-   }elseif($availability <= 50){
-      $query .= "0";
-   }else{
-      $query .= "2";
-   }
-   $query .= " WHERE id = " . $block_id;
-   //--データベースに接続する
-   $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
-   db_run($link,$query);
-   return true;
-}
+
 ?>

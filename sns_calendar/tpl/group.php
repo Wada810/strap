@@ -297,7 +297,7 @@
                             <option value="days">毎日</option>
                             <option value="weeks">毎週</option>
                             <option value="months">毎月</option>
-                            <option value="yeas">毎年</option>
+                            <option value="years">毎年</option>
                         </select>
                     </div>
                     <div class="f_discription_parts">
@@ -348,6 +348,7 @@
                     <div class="f_discription_parts">
                     </div>
                 </div>
+                <input type="hidden" name="room_id" value="<?php echo $_GET['room_id']; ?>">
                 <div class="submit_box"><button class="btn btn-green" name="button" value="add_schedule">ブロックを追加する</button></div>
         </form>
     </div>
