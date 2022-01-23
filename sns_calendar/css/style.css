@@ -33,7 +33,7 @@ body .material-icons-outlined {
 }
 
 #contents_wrapper #left_column_contents > section, #contents_wrapper #right_column_contents > section {
-  background-color: #fcfeff;
+  background-color: #f8f8f8;
   border-radius: 10px;
   padding: 40px;
 }
@@ -75,12 +75,12 @@ body .material-icons-outlined {
 
 .btn-green {
   background-color: #54d369;
-  color: #fcfeff;
+  color: #f8f8f8;
 }
 
 .btn_grey {
   background-color: #646464;
-  color: #fcfeff;
+  color: #f8f8f8;
 }
 
 .icon_in {
@@ -328,6 +328,29 @@ header ul .active {
   font-size: 1rem;
 }
 
+#schedule_board .frame.block .schedule {
+  border: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d7eeffc9;
+  background-color: #ffebebc9;
+  background-color: #e4e4e4c1;
+  transition: box-shadow 0.3s;
+}
+
+#schedule_board .frame.block .schedule span {
+  width: 100%;
+  display: block;
+  color: #3daafd;
+  color: #fd3d60;
+  color: #6b6b6b;
+}
+
+#schedule_board .frame.block .schedule:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
 #schedule_board .day_col {
   display: flex;
   justify-content: center;
@@ -395,7 +418,7 @@ header ul .active {
 
 #sign_box .login {
   background-color: #54d369;
-  color: #fcfeff;
+  color: #f8f8f8;
 }
 
 #sign_box .signin {

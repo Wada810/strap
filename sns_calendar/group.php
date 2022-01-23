@@ -2,6 +2,7 @@
 require_once './initial_setting.php';
 
 $add_schedule_modal = 'none';
+$block_modal = 'none';
 //ダイアログがある時は表示する
 $dialog = "";/* 内容 */
 $dialog_visibility = "hidden";/* 表示 */
@@ -10,14 +11,23 @@ if(isset($_SESSION["dialog"])){
     $dialog_visibility = "";
 }
 
+//カレンダーのボタン処理
+$week_back = -1;
+$week_next = 1;
+$modf = "";
+if(isset($_GET["week_change"])){
+    $week_back = $_GET["week_change"] - 1;
+    $week_next = $_GET["week_change"] + 1;
+    $modf = $_GET["week_change"];
+}
 
-    //ログアウトボタンが押されたとき
-    if(isset($_POST["logout"])){
-        unset($_COOKIE["login"]);
-        setcookie("login","",time() - 1000);
-        header("location: ./toppage.php");
-        exit;
-    }
+//ログアウトボタンが押されたとき
+if(isset($_POST["logout"])){
+    unset($_COOKIE["login"]);
+    setcookie("login","",time() - 1000);
+    header("location: ./toppage.php");
+    exit;
+}
 //======================================
 //●不正アクセスを防ぐ処理
 //======================================

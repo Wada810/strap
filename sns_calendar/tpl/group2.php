@@ -82,22 +82,34 @@
                     <div class="day_fixed">日</div>
                     <div class="day_fixed"></div>
 
-                    <div class="day_col spacer"><button id="week_back"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
-                    <div class="day_col">1/17
+                    <div class="day_col spacer"><button id="week_back" form="form" name="week_change" value="<?php print $week_back ?>"><span class="material-icons-outlined">arrow_back_ios_new</span></button></div>
+                    <?php
+                    foreach(get_c_d($modf) as $val){?>
+                        <div class="day_col"><?php print $val;?></div><?php
+                    }
+                    ?>
+                    <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+
+                    <div class="frame spacer"></div>
+                    <div class="frame block ">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">circle</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/18
+                    <div class="frame block">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">clear</span>
+                        </div>
                     </div>
-                    <div class="day_col">1/19
-                    </div>
-                    <div class="day_col">1/20
-                    </div>
-                    <div class="day_col">1/21
-                    </div>
-                    <div class="day_col">1/22
-                    </div>
-                    <div class="day_col">1/23
-                    </div>
-                    <div class="day_col spacer"><button id="week_next"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
+                    <div class="frame block">
+                        <div class="schedule" style="top: 400px; height: 120px;">
+                            <span class="material-icons-outlined block_icon">change_history</span>
+                        </div></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame spacer"></div>
 
                     <div class="hour_bg">
                         <div class="hour_row">0:00</div>
@@ -237,10 +249,19 @@
                 <div class="submit_box"><button class="btn btn-green" name="button" value="add_schedule">ブロックを追加する</button></div>
         </form>
     </div>
+    <!-- スケジュール確定モーダル -->
+    <div id="block_modal_wrapper" class="modal_wrapper <?php echo $block_modal ?>">
+        <form id="block_modal" class="f_box modal_box" action="" method="post">
+            <h2>スケジュールを確定させる</h2>
+            <h3>2022/01/12 ~ 2022/01/23</h3>
+            <button class="f_submit" name="button" value="block_submit">確定する</button>
+        </form>
+    </div>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/key_forcus.js"></script>
     <script src="./js/add_schedule.js"></script>
     <script src="./js/dialog.js"></script>
+    <script src="./js/group_block.js"></script>
 </body>
 </html>
