@@ -71,7 +71,6 @@
                     <button class="active"><a href="group2.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">groups</span></a></button>
                     <button><a href="group3.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">info</span></a></button>
                 </div>
-                <button class="btn btn-green icon_in" id="open_add_schedule_modal">Add Schedule<span class="material-icons-outlined">add_box</span></button>
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
                     <div class="day_fixed">月</div>
