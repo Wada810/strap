@@ -306,12 +306,15 @@ function get_g_b($modifier=""){
    $end->setTime(0,0,0);
    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
    $query = "SELECT * FROM block
-    WHERE user_id = " . $_COOKIE["login"] . "
+    WHERE group_id = " . $_GET["room_id"] . "
    AND start BETWEEN '" . $start->format("Y-m-d H:i:s") . "' AND '" . $end->format("Y-m-d H:i:s") . "'";
    //var_dump($query);
    $result = db_run($link,$query);
    return get_data($result);
 }
+
+
+
 function get_p_b($modifier=""){
    if($modifier != ""){
       $mod = new DateTime();
@@ -326,7 +329,7 @@ function get_p_b($modifier=""){
    $end->setTime(0,0,0);
    $link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
    $query = "SELECT * FROM personal_block
-    WHERE user_id = " . $_COOKIE["login"] . "
+    WHERE user_id = " . $_COOKIE["login"] . " AND group_id = " . $_GET["room_id"] . "
    AND start BETWEEN '" . $start->format("Y-m-d H:i:s") . "' AND '" . $end->format("Y-m-d H:i:s") . "'";
    //var_dump($query);
    $result = db_run($link,$query);

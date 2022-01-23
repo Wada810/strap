@@ -25,6 +25,7 @@
             <li class="active"><a>グループスケジュール</a></li>
         </ul>
     </header>
+    <form method="get" id="form"><input type="hidden" name="room_id" value="<?php print $_GET["room_id"] ?>"></form>
     <main id="contents_wrapper">
         <section id="left_column_contents">
             <section id="account">
@@ -91,20 +92,9 @@
                     <div class="day_col spacer"><button id="week_next" form="form" name="week_change" value="<?php print $week_next ?>"><span class="material-icons-outlined">arrow_forward_ios</span></button></div>
 
                     <div class="frame spacer"></div>
-                    <div class="frame block schedule_block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon" id="82">circle</span>
-                        </div>
-                    </div>
-                    <div class="frame block schedule_block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">clear</span>
-                        </div>
-                    </div>
-                    <div class="frame block schedule_block">
-                        <div class="schedule" style="top: 400px; height: 120px;">
-                            <span class="material-icons-outlined block_icon">change_history</span>
-                        </div></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
+                    <div class="frame block"></div>
                     <div class="frame block"></div>
                     <div class="frame block"></div>
                     <div class="frame block"></div>
@@ -262,6 +252,13 @@
             <button class="f_submit" name="button" value="block_submit">確定する</button>
         </form>
     </div>
+    <?php if(isset($_COOKIE["login"])){?>
+    <script>
+        /* phpで取得したスケジュールの配列をjsにjsonでわたす */
+        let schedules = <?php print json_encode(get_g_b($modf));?>;
+        console.log(schedules);
+    </script><?php
+    }?>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/key_forcus.js"></script>
