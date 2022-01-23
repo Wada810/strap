@@ -10,6 +10,14 @@ if(isset($_SESSION["dialog"])){
     $dialog_visibility = "";
 }
 
+
+    //ログアウトボタンが押されたとき
+    if(isset($_POST["logout"])){
+        unset($_COOKIE["login"]);
+        setcookie("login","",time() - 1000);
+        header("location: ./toppage.php");
+        exit;
+    }
 //======================================
 //●不正アクセスを防ぐ処理
 //======================================
@@ -58,6 +66,14 @@ $result = db_run($link,$sql);
 //フェッチ処理
 $user_data = mysqli_fetch_assoc($result);
 
+//現在ログインしているグループの情報を取得
+$link = mysqli_connect(HOST,USER_ID,PASSWORD,DB_NAME);
+//sqlを設定する
+$sql = "SELECT * FROM room WHERE id = " . $_GET["room_id"];
+//sqlを実行する
+$result = db_run($link,$sql);
+//フェッチ処理
+$login_group = mysqli_fetch_assoc($result);
 //================================
 //●グループ情報の取得
 //================================

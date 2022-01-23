@@ -197,11 +197,11 @@
 }
 
 .top_navis button:nth-of-type(1):hover::after {
-  content: "あなたのスケジュールの空き";
+  content: "あなたのスケジュール";
 }
 
 .top_navis button:nth-of-type(2):hover::after {
-  content: "グループ全員のスケジュールの空き";
+  content: "グループ全員のスケジュール";
 }
 
 .top_navis button:nth-of-type(3):hover::after {

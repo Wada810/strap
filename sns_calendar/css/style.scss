@@ -99,6 +99,10 @@ header{
 }
 ////////toppage//////////
 #account{
+    h2{
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
     .account_box{
         display: flex;
         justify-content: flex-start;
@@ -116,7 +120,7 @@ header{
             justify-content: space-between;
             .name{
                 font-weight: 700;
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             .id{
                 span{
