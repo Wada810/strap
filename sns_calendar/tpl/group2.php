@@ -29,6 +29,17 @@
         <section id="left_column_contents">
             <section id="account">
                 <div class="account_box">
+                    <img src="./img/group/<?php echo $login_group['id']; ?>/<?php echo $login_group['img_name']; ?>" alt="アカウントアイコン">
+                    <div class="profs aic">
+                        <div>
+                            <h2>現在のグループ</h2>
+                            <p class="name"><?php print $login_group["name"] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="account">
+                <div class="account_box">
                     <img src="img/user/<?php print $user_data["id"] . "/" . $user_data["img_name"];?>" alt="アカウントアイコン">
                     <div class="profs">
                         <div>
@@ -61,7 +72,6 @@
                     <button><a href="group3.php?room_id=<?php print $_GET["room_id"] ?>"><span class="material-icons-outlined">info</span></a></button>
                 </div>
                 <button class="btn btn-green icon_in" id="open_add_schedule_modal">Add Schedule<span class="material-icons-outlined">add_box</span></button>
-                <div id="month"><button id="month_change"><span class="material-icons-outlined">arrow_back_ios_new</span>3月</button></div>
                 <div id="schedule_board">
                     <div class="day_fixed"></div>
                     <div class="day_fixed">月</div>
@@ -233,6 +243,5 @@
     <script src="./js/key_forcus.js"></script>
     <script src="./js/add_schedule.js"></script>
     <script src="./js/dialog.js"></script>
-    <script src="./js/personal_schedule.js"></script>
 </body>
 </html>

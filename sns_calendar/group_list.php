@@ -3,7 +3,6 @@ require_once './initial_setting.php';
 
 //モーダルの表示に関する変数
 $create_group_modal = 'none';
-
 if(isset($_POST['button']) && $_POST['button'] == 'submit'){
     //================================
     //●エラーチェック
