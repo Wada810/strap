@@ -38,7 +38,7 @@ $(function(){
     //モーダルを表示
     $('.block_icon').click(function(){
         console.log($(this).attr('id'));
-        $([])
+        $(input[])
         $('#block_modal_wrapper').fadeIn(300).css('display','flex');
     });
     //伝播阻止
